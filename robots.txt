@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adaahub.github.io/sitemap_index.xml
+Sitemap: https://adaahub.github.io/sitemap.xml
