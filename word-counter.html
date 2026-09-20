@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عداد الكلمات والحروف أونلاين مجانًا | AdaaHub</title>
+
+<meta name="description" content="عداد كلمات وحروف عربي وإنجليزي مجاني أونلاين. احسب الكلمات والحروف والجمل والأسطر والمسافات ووقت القراءة بسهولة من الهاتف أو الكمبيوتر.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://adaahub.github.io/tools/word-counter.html">
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --primary:#2563eb;
+  --primary-dark:#1d4ed8;
+  --primary-soft:#eff6ff;
+  --bg:#f6f8fc;
+  --surface:#ffffff;
+  --text:#111827;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --shadow:0 12px 35px rgba(15,23,42,.07);
+}
+
+html.dark{
+  --primary:#60a5fa;
+  --primary-dark:#93c5fd;
+  --primary-soft:#172554;
+  --bg:#0b1120;
+  --surface:#111827;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:#243044;
+  --success:#4ade80;
+  --danger:#f87171;
+  --shadow:0 12px 35px rgba(0,0,0,.25);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:
+    radial-gradient(circle at top right,rgba(37,99,235,.08),transparent 30%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  transition:
+    background .25s ease,
+    color .25s ease;
+}
+
+a{
+  color:var(--primary);
+}
+
+button,
+textarea{
+  font-family:inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.88);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+
+html.dark header{
+  background:rgba(17,24,39,.88);
+}
+
+.header-inner{
+  width:94%;
+  max-width:1100px;
+  min-height:70px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:var(--text);
+  font-size:23px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.logo-mark{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:11px;
+  background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+  color:#fff;
+  font-size:20px;
+  box-shadow:0 7px 18px rgba(37,99,235,.22);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.home-link,
+.theme-toggle{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  text-decoration:none;
+  border-radius:10px;
+  padding:8px 12px;
+  font-size:14px;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.home-link:hover,
+.theme-toggle:hover{
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+  width:94%;
+  max-width:1000px;
+  margin:42px auto 55px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  border:1px solid rgba(37,99,235,.12);
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.hero h1{
+  margin:0 0 9px;
+  color:var(--text);
+  font-size:32px;
+  line-height:1.35;
+}
+
+.hero p{
+  max-width:720px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:16px;
+}
+
+
+/* =========================
+   TOOL CARD
+========================= */
+
+.tool-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.text-box{
+  position:relative;
+}
+
+textarea{
+  display:block;
+  width:100%;
+  min-height:290px;
+  resize:vertical;
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--surface);
+  color:var(--text);
+  font-size:17px;
+  line-height:1.9;
+  outline:none;
+  transition:
+    border-color .2s,
+    box-shadow .2s,
+    background .25s,
+    color .25s;
+}
+
+textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(37,99,235,.10);
+}
+
+textarea::placeholder{
+  color:var(--muted);
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.stat{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:15px 10px;
+  text-align:center;
+  transition:.2s ease;
+}
+
+.stat:hover{
+  transform:translateY(-2px);
+  border-color:rgba(37,99,235,.35);
+}
+
+.stat strong{
+  display:block;
+  color:var(--primary);
+  font-size:25px;
+  line-height:1.4;
+  margin-bottom:3px;
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:14px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.action-btn{
+  flex:1;
+  min-height:50px;
+  border-radius:11px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:700;
+  transition:
+    opacity .2s,
+    transform .1s,
+    background .2s;
+}
+
+.action-btn:active{
+  transform:scale(.98);
+}
+
+.action-btn:hover{
+  opacity:.92;
+}
+
+.copy-btn{
+  border:0;
+  background:var(--primary);
+  color:#fff;
+}
+
+.clear-btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+  min-height:26px;
+  text-align:center;
+  margin-top:12px;
+  color:var(--success);
+  font-weight:700;
+  font-size:14px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  margin-top:25px;
+  box-shadow:var(--shadow);
+}
+
+.content h2{
+  color:var(--primary);
+  font-size:21px;
+  margin:27px 0 10px;
+}
+
+.content h2:first-child{
+  margin-top:0;
+}
+
+.content h3{
+  color:var(--text);
+  font-size:18px;
+  margin:22px 0 6px;
+}
+
+.content p,
+.content li{
+  color:var(--muted);
+}
+
+.content ul,
+.content ol{
+  padding-right:22px;
+}
+
+.content a{
+  color:var(--primary);
+  text-decoration:none;
+}
+
+.content a:hover{
+  text-decoration:underline;
+}
+
+
+/* =========================
+   PRIVACY
+========================= */
+
+.privacy{
+  background:rgba(22,163,74,.08);
+  border-right:4px solid var(--success);
+  padding:14px 15px;
+  border-radius:10px;
+  margin-top:15px;
+  color:var(--text);
+}
+
+
+/* =========================
+   RELATED TOOLS
+========================= */
+
+.related-tools{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:13px;
+}
+
+.related-tools a{
+  display:inline-block;
+  background:var(--primary-soft);
+  color:var(--primary);
+  border:1px solid rgba(37,99,235,.10);
+  border-radius:9px;
+  padding:7px 12px;
+  font-size:14px;
+  text-decoration:none;
+}
+
+.related-tools a:hover{
+  text-decoration:none;
+  border-color:var(--primary);
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+  margin-top:12px;
+}
+
+.faq details{
+  border:1px solid var(--border);
+  border-radius:11px;
+  margin-bottom:10px;
+  background:var(--bg);
+  overflow:hidden;
+}
+
+.faq summary{
+  cursor:pointer;
+  padding:13px 15px;
+  font-weight:700;
+  color:var(--text);
+}
+
+.faq p{
+  margin:0;
+  padding:0 15px 15px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:25px 15px 35px;
+  font-size:14px;
+}
+
+footer a{
+  color:var(--primary);
+  text-decoration:none;
+  margin:0 4px;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .header-inner{
+    min-height:64px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .logo-mark{
+    width:35px;
+    height:35px;
+    border-radius:10px;
+  }
+
+  .home-link,
+  .theme-toggle{
+    padding:7px 9px;
+    font-size:13px;
+  }
+
+  .container{
+    width:94%;
+    margin:28px auto 40px;
+  }
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .tool-card,
+  .content{
+    padding:18px;
+    border-radius:16px;
+  }
+
+  textarea{
+    min-height:245px;
+    font-size:16px;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+  }
+
+  .stat{
+    padding:12px 7px;
+  }
+
+  .stat strong{
+    font-size:22px;
+  }
+
+  .stat span{
+    font-size:13px;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  .content h2{
+    font-size:20px;
+  }
+
+}
+
+@media(max-width:430px){
+
+  .header-inner{
+    width:95%;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .header-actions{
+    gap:5px;
+  }
+
+  .hero h1{
+    font-size:22px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+    transition:none !important;
+  }
+
+}
+
+</style>
+
+<script>
+
+(function(){
+
+  const savedTheme =
+    localStorage.getItem("adaahub-theme");
+
+  if(savedTheme === "dark"){
+    document.documentElement.classList.add("dark");
+  }
+
+})();
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-inner">
+
+    <a class="logo" href="../index.html" aria-label="AdaaHub الرئيسية">
+
+      <span class="logo-mark">A</span>
+
+      <span>AdaaHub</span>
+
+    </a>
+
+    <div class="header-actions">
+
+      <a
+        class="home-link"
+        href="../index.html"
+      >
+        الرئيسية
+      </a>
+
+      <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="تفعيل الوضع الليلي"
+        title="تفعيل الوضع الليلي"
+      >
+        🌙
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+
+  <section class="hero">
+
+    <div class="badge">
+      ⚡ أداة مجانية وسريعة
+    </div>
+
+    <h1>
+      عداد الكلمات والحروف أونلاين
+    </h1>
+
+    <p>
+      احسب عدد الكلمات والحروف والجمل والأسطر والمسافات
+      ووقت القراءة بسهولة من الهاتف أو الكمبيوتر.
+    </p>
+
+  </section>
+
+
+  <section class="tool-card">
+
+    <div class="text-box">
+
+      <textarea
+        id="textInput"
+        placeholder="اكتب أو الصق النص هنا..."
+        spellcheck="false"
+        aria-label="النص المراد حساب عدد الكلمات والحروف فيه"
+      ></textarea>
+
+    </div>
+
+
+    <div class="stats">
+
+      <div class="stat">
+        <strong id="words">0</strong>
+        <span>الكلمات</span>
+      </div>
+
+      <div class="stat">
+        <strong id="characters">0</strong>
+        <span>الحروف والرموز</span>
+      </div>
+
+      <div class="stat">
+        <strong id="charactersNoSpaces">0</strong>
+        <span>بدون مسافات</span>
+      </div>
+
+      <div class="stat">
+        <strong id="sentences">0</strong>
+        <span>الجمل</span>
+      </div>
+
+      <div class="stat">
+        <strong id="lines">0</strong>
+        <span>الأسطر</span>
+      </div>
+
+      <div class="stat">
+        <strong id="spaces">0</strong>
+        <span>المسافات</span>
+      </div>
+
+      <div class="stat">
+        <strong id="paragraphs">0</strong>
+        <span>الفقرات</span>
+      </div>
+
+      <div class="stat">
+        <strong id="readingTime">0 دقيقة</strong>
+        <span>وقت القراءة</span>
+      </div>
+
+    </div>
+
+
+    <div class="buttons">
+
+      <button
+        type="button"
+        class="action-btn copy-btn"
+        id="copyBtn"
+      >
+        📋 نسخ النص
+      </button>
+
+      <button
+        type="button"
+        class="action-btn clear-btn"
+        id="clearBtn"
+      >
+        🗑️ مسح النص
+      </button>
+
+    </div>
+
+
+    <div
+      class="status"
+      id="status"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+  <section class="content">
+
+    <h2>ما هي أداة عداد الكلمات والحروف؟</h2>
+
+    <p>
+      أداة عداد الكلمات والحروف من AdaaHub تساعدك على معرفة إحصائيات
+      النص بسرعة، سواء كان النص باللغة العربية أو الإنجليزية أو بلغة
+      أخرى. تعمل الأداة مباشرة داخل المتصفح دون الحاجة إلى تثبيت أي برنامج.
+    </p>
+
+
+    <h2>ماذا تحسب الأداة؟</h2>
+
+    <ul>
+
+      <li>عدد الكلمات في النص.</li>
+
+      <li>عدد الحروف والرموز والمسافات بشكل إجمالي.</li>
+
+      <li>عدد الحروف والرموز بدون المسافات.</li>
+
+      <li>عدد الجمل التي يحتوي عليها النص.</li>
+
+      <li>عدد الأسطر الموجودة في النص.</li>
+
+      <li>عدد المسافات العادية بين الكلمات.</li>
+
+      <li>عدد الفقرات في النص.</li>
+
+      <li>وقت قراءة تقريبي حسب عدد الكلمات.</li>
+
+    </ul>
+
+
+    <h2>طريقة استخدام عداد الكلمات</h2>
+
+    <ol>
+
+      <li>
+        اكتب النص أو الصقه داخل مربع الكتابة.
+      </li>
+
+      <li>
+        ستظهر الإحصائيات تلقائيًا أثناء الكتابة.
+      </li>
+
+      <li>
+        راجع عدد الكلمات والحروف والجمل والأسطر.
+      </li>
+
+      <li>
+        استخدم زر "نسخ النص" لنسخ المحتوى عند الحاجة.
+      </li>
+
+      <li>
+        استخدم زر "مسح النص" للبدء بنص جديد.
+      </li>
+
+    </ol>
+
+
+    <h2>هل يتم حفظ النص أو إرساله إلى خادم؟</h2>
+
+    <div class="privacy">
+
+      لا. يتم حساب إحصائيات النص داخل متصفحك مباشرة،
+      ولا تحتاج الأداة إلى إرسال النص إلى خادم AdaaHub
+      حتى تقوم بعملية العد.
+
+    </div>
+
+
+    <h2>من يمكنه استخدام الأداة؟</h2>
+
+    <p>
+      يمكن استخدام عداد الكلمات للطلاب والكتاب وأصحاب المواقع
+      والمدونات وصناع المحتوى وأي شخص يحتاج إلى معرفة طول النص
+      بسرعة من الهاتف أو الكمبيوتر.
+    </p>
+
+
+    <h2>أدوات أخرى قد تهمك</h2>
+
+    <div class="related-tools">
+
+      <a href="image-info.html">
+        معلومات الصورة
+      </a>
+
+      <a href="compress.html">
+        ضغط الصور
+      </a>
+
+      <a href="webp.html">
+        تحويل إلى WebP
+      </a>
+
+      <a href="resize.html">
+        تغيير حجم الصور
+      </a>
+
+      <a href="crop.html">
+        قص الصور
+      </a>
+
+      <a href="rotate.html">
+        تدوير الصور
+      </a>
+
+      <a href="jpg-to-png.html">
+        JPG إلى PNG
+      </a>
+
+      <a href="png-to-jpg.html">
+        PNG إلى JPG
+      </a>
+
+      <a href="webp-to-jpg.html">
+        WebP إلى JPG
+      </a>
+
+      <a href="pdf.html">
+        تحويل الصور إلى PDF
+      </a>
+
+    </div>
+
+
+    <h2>الأسئلة الشائعة</h2>
+
+    <div class="faq">
+
+      <details>
+
+        <summary>
+          هل عداد الكلمات مجاني؟
+        </summary>
+
+        <p>
+          نعم، يمكن استخدام الأداة مجانًا من الهاتف أو الكمبيوتر
+          دون الحاجة إلى تثبيت برنامج.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل تدعم الأداة اللغة العربية؟
+        </summary>
+
+        <p>
+          نعم، يمكن استخدامها لحساب النصوص العربية والإنجليزية
+          وغيرها من اللغات التي يدعمها المتصفح.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل يتم إرسال النص إلى الإنترنت؟
+        </summary>
+
+        <p>
+          لا، عملية حساب الإحصائيات تتم داخل المتصفح على جهازك.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          كيف يتم حساب وقت القراءة؟
+        </summary>
+
+        <p>
+          وقت القراءة المعروض تقديري ويعتمد على عدد الكلمات الموجودة
+          في النص، لذلك قد يختلف الوقت الفعلي من شخص إلى آخر حسب سرعة القراءة.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل يمكن استخدام الأداة من الهاتف؟
+        </summary>
+
+        <p>
+          نعم، الصفحة مصممة للعمل على الهواتف والأجهزة اللوحية
+          وأجهزة الكمبيوتر.
+        </p>
+
+      </details>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  © 2026 AdaaHub - مركز الأدوات اليومية
+
+  <div style="margin-top:8px;">
+
+    <a href="../pages/about.html">
+      من نحن
+    </a>
+
+    |
+
+    <a href="../pages/privacy.html">
+      الخصوصية
+    </a>
+
+    |
+
+    <a href="../pages/terms.html">
+      الشروط والأحكام
+    </a>
+
+    |
+
+    <a href="../pages/contact.html">
+      اتصل بنا
+    </a>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   THEME
+========================= */
+
+const themeToggle =
+  document.getElementById("themeToggle");
+
+function updateThemeButton(){
+
+  const dark =
+    document.documentElement.classList.contains("dark");
+
+  themeToggle.textContent =
+    dark ? "☀️" : "🌙";
+
+  themeToggle.setAttribute(
+    "aria-label",
+    dark
+      ? "تفعيل الوضع النهاري"
+      : "تفعيل الوضع الليلي"
+  );
+
+  themeToggle.setAttribute(
+    "title",
+    dark
+      ? "تفعيل الوضع النهاري"
+      : "تفعيل الوضع الليلي"
+  );
+
+}
+
+themeToggle.addEventListener("click", () => {
+
+  const isDark =
+    document.documentElement.classList.toggle("dark");
+
+  localStorage.setItem(
+    "adaahub-theme",
+    isDark ? "dark" : "light"
+  );
+
+  updateThemeButton();
+
+});
+
+updateThemeButton();
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const textInput =
+  document.getElementById("textInput");
+
+const words =
+  document.getElementById("words");
+
+const characters =
+  document.getElementById("characters");
+
+const charactersNoSpaces =
+  document.getElementById("charactersNoSpaces");
+
+const sentences =
+  document.getElementById("sentences");
+
+const lines =
+  document.getElementById("lines");
+
+const spaces =
+  document.getElementById("spaces");
+
+const paragraphs =
+  document.getElementById("paragraphs");
+
+const readingTime =
+  document.getElementById("readingTime");
+
+const copyBtn =
+  document.getElementById("copyBtn");
+
+const clearBtn =
+  document.getElementById("clearBtn");
+
+const status =
+  document.getElementById("status");
+
+
+/* =========================
+   STATUS
+========================= */
+
+function showStatus(message){
+
+  status.textContent = message;
+
+  setTimeout(() => {
+
+    status.textContent = "";
+
+  }, 2500);
+
+}
+
+
+/* =========================
+   UPDATE STATS
+========================= */
+
+function updateStats(){
+
+  const text =
+    textInput.value;
+
+
+  /* إجمالي الحروف والرموز والمسافات */
+
+  characters.textContent =
+    text.length;
+
+
+  /* بدون مسافات */
+
+  charactersNoSpaces.textContent =
+    text.replace(/\s/g, "").length;
+
+
+  /* الكلمات */
+
+  const trimmed =
+    text.trim();
+
+  const wordCount =
+    trimmed === ""
+      ? 0
+      : trimmed.split(/\s+/).length;
+
+  words.textContent =
+    wordCount;
+
+
+  /* الجمل */
+
+  const sentenceMatches =
+    text.match(/[.!؟?]+/g);
+
+  sentences.textContent =
+    sentenceMatches
+      ? sentenceMatches.length
+      : "0";
+
+
+  /* الأسطر */
+
+  if(text === ""){
+
+    lines.textContent = "0";
+
+  }else{
+
+    lines.textContent =
+      text.split(/\r\n|\r|\n/).length;
+
+  }
+
+
+  /* المسافات العادية */
+
+  const spaceMatches =
+    text.match(/ /g);
+
+  spaces.textContent =
+    spaceMatches
+      ? spaceMatches.length
+      : "0";
+
+
+  /* الفقرات */
+
+  if(trimmed === ""){
+
+    paragraphs.textContent = "0";
+
+  }else{
+
+    paragraphs.textContent =
+      trimmed.split(/\n\s*\n/).length;
+
+  }
+
+
+  /* وقت القراءة */
+
+  if(wordCount === 0){
+
+    readingTime.textContent =
+      "0 دقيقة";
+
+  }else{
+
+    const minutes =
+      Math.max(
+        1,
+        Math.ceil(wordCount / 200)
+      );
+
+    readingTime.textContent =
+      minutes +
+      (
+        minutes === 1
+          ? " دقيقة"
+          : " دقائق"
+      );
+
+  }
+
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+textInput.addEventListener(
+  "input",
+  updateStats
+);
+
+
+/* =========================
+   COPY
+========================= */
+
+copyBtn.addEventListener(
+  "click",
+  async () => {
+
+    const text =
+      textInput.value;
+
+    if(!text){
+
+      showStatus(
+        "لا يوجد نص لنسخه."
+      );
+
+      return;
+
+    }
+
+    try{
+
+      if(
+        navigator.clipboard &&
+        window.isSecureContext
+      ){
+
+        await navigator.clipboard.writeText(
+          text
+        );
+
+      }else{
+
+        textInput.focus();
+        textInput.select();
+
+        document.execCommand("copy");
+
+      }
+
+      showStatus(
+        "تم نسخ النص بنجاح."
+      );
+
+    }catch(error){
+
+      try{
+
+        textInput.focus();
+        textInput.select();
+
+        document.execCommand("copy");
+
+        showStatus(
+          "تم نسخ النص."
+        );
+
+      }catch(copyError){
+
+        showStatus(
+          "تعذر نسخ النص. يمكنك تحديده ونسخه يدويًا."
+        );
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================
+   CLEAR
+========================= */
+
+clearBtn.addEventListener(
+  "click",
+  () => {
+
+    textInput.value = "";
+
+    updateStats();
+
+    textInput.focus();
+
+    showStatus(
+      "تم مسح النص."
+    );
+
+  }
+);
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+updateStats();
+
+</script>
+
+</body>
+</html>

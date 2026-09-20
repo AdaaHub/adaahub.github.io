@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تغيير حجم الصور أونلاين مجانًا | تصغير وتكبير الصور | AdaaHub</title>
+
+<meta
+name="description"
+content="غيّر حجم الصور أونلاين مجانًا. صغّر أو كبّر الصور وحدد العرض والارتفاع مع الحفاظ على تناسب الأبعاد، ثم حمّل الصورة مباشرة من المتصفح."
+>
+
+<meta name="robots" content="index, follow">
+
+<link
+rel="canonical"
+href="https://adaahub.github.io/tools/resize.html"
+>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --primary:#2563eb;
+  --primary-dark:#1d4ed8;
+  --primary-soft:#eff6ff;
+  --bg:#f6f8fc;
+  --surface:#ffffff;
+  --text:#111827;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --shadow:0 12px 35px rgba(15,23,42,.07);
+}
+
+html.dark{
+  --primary:#60a5fa;
+  --primary-dark:#93c5fd;
+  --primary-soft:#172554;
+  --bg:#0b1120;
+  --surface:#111827;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:#243044;
+  --success:#4ade80;
+  --danger:#f87171;
+  --shadow:0 12px 35px rgba(0,0,0,.25);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(37,99,235,.08),
+      transparent 35%
+    ),
+    var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  transition:
+    background .25s ease,
+    color .25s ease;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+
+html.dark header{
+  background:rgba(11,17,32,.88);
+}
+
+.header{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:var(--text);
+  text-decoration:none;
+  font-size:25px;
+  font-weight:800;
+}
+
+.logo-mark{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  color:#fff;
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #60a5fa
+    );
+  box-shadow:
+    0 8px 20px rgba(37,99,235,.22);
+}
+
+.logo span{
+  color:var(--primary);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.home{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:bold;
+  padding:9px 12px;
+  border-radius:9px;
+}
+
+.home:hover{
+  background:var(--primary-soft);
+}
+
+.theme-toggle{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s;
+}
+
+.theme-toggle:hover{
+  border-color:var(--primary);
+  transform:translateY(-1px);
+}
+
+.container{
+  max-width:1050px;
+  margin:0 auto;
+  padding:45px 20px;
+}
+
+.hero{
+  text-align:center;
+  max-width:800px;
+  margin:0 auto 30px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 13px;
+  border-radius:999px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:14px;
+}
+
+h1{
+  margin:0 0 12px;
+  font-size:38px;
+  line-height:1.35;
+}
+
+.subtitle{
+  margin:0 auto;
+  max-width:760px;
+  color:var(--muted);
+  font-size:17px;
+}
+
+.tool-box{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.upload-area{
+  border:2px dashed var(--border);
+  border-radius:16px;
+  padding:42px 20px;
+  text-align:center;
+  background:
+    linear-gradient(
+      180deg,
+      var(--primary-soft),
+      var(--surface)
+    );
+}
+
+.upload-icon{
+  font-size:48px;
+  margin-bottom:8px;
+}
+
+.upload-area h2{
+  margin:0 0 7px;
+  font-size:22px;
+}
+
+.upload-area p{
+  color:var(--muted);
+  margin:0 0 20px;
+}
+
+input[type="file"]{
+  display:none;
+}
+
+.choose-button{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  padding:13px 25px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.choose-button:hover{
+  background:var(--primary-dark);
+  transform:translateY(-1px);
+}
+
+.file-selected{
+  display:none;
+  margin:16px auto 0;
+  max-width:600px;
+  background:var(--primary-soft);
+  border:1px solid var(--border);
+  color:var(--primary);
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:14px;
+}
+
+.settings{
+  display:none;
+  margin-top:20px;
+  padding:22px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:15px;
+}
+
+.settings h2{
+  font-size:21px;
+  margin:0 0 18px;
+}
+
+.dimensions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.field label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--surface);
+  color:var(--text);
+  font-size:16px;
+  outline:none;
+  transition:.2s;
+}
+
+.field input:focus,
+.field select:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(37,99,235,.10);
+}
+
+.lock-row{
+  margin-top:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.lock-row input{
+  width:18px;
+  height:18px;
+  accent-color:var(--primary);
+}
+
+.lock-row label{
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.format-section{
+  margin-top:20px;
+}
+
+.format-section label,
+.quality-section label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.format-section select{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--surface);
+  color:var(--text);
+  font-size:16px;
+  outline:none;
+}
+
+.format-section select:focus{
+  border-color:var(--primary);
+}
+
+.quality-section{
+  margin-top:20px;
+}
+
+.quality-row{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+input[type="range"]{
+  flex:1;
+  accent-color:var(--primary);
+  cursor:pointer;
+}
+
+#qualityValue{
+  min-width:50px;
+  font-weight:bold;
+  color:var(--primary);
+}
+
+.resize-button{
+  width:100%;
+  border:0;
+  margin-top:20px;
+  background:var(--success);
+  color:#fff;
+  padding:14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.resize-button:hover{
+  background:#15803d;
+  transform:translateY(-1px);
+}
+
+.resize-button:disabled{
+  background:#94a3b8;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.result{
+  display:none;
+  margin-top:22px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:25px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.result h2{
+  margin-top:0;
+  color:var(--success);
+}
+
+.preview{
+  max-width:100%;
+  max-height:400px;
+  display:block;
+  margin:15px auto;
+  border-radius:12px;
+  background:var(--bg);
+  border:1px solid var(--border);
+}
+
+.file-info{
+  background:var(--bg);
+  border:1px solid var(--border);
+  padding:15px;
+  border-radius:11px;
+  margin-top:15px;
+  line-height:2;
+}
+
+.download-button{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 25px;
+  background:var(--primary);
+  color:#fff;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.download-button:hover{
+  background:var(--primary-dark);
+  transform:translateY(-1px);
+}
+
+.reset-button{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 20px;
+  background:var(--border);
+  color:var(--text);
+  border:0;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.reset-button:hover{
+  opacity:.85;
+}
+
+.privacy-note{
+  margin-top:20px;
+  background:var(--primary-soft);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  color:var(--primary);
+  text-align:center;
+}
+
+.content{
+  background:var(--surface);
+  margin-top:30px;
+  padding:28px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.content h2{
+  margin-top:0;
+  font-size:25px;
+}
+
+.content h3{
+  font-size:20px;
+  margin-top:25px;
+}
+
+.content ol,
+.content ul{
+  padding-right:22px;
+}
+
+.content li{
+  margin-bottom:7px;
+}
+
+.content a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.content a:hover{
+  text-decoration:underline;
+}
+
+.faq{
+  margin-top:30px;
+}
+
+.faq details{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+
+.faq summary{
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.faq p{
+  color:var(--muted);
+}
+
+.tools-links{
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+}
+
+.tools-links h3{
+  margin-top:0;
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:30px 20px;
+  margin-top:10px;
+}
+
+footer a{
+  color:var(--primary);
+  text-decoration:none;
+  margin:0 5px;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
+
+.status{
+  min-height:24px;
+  margin-top:14px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.spinner{
+  display:inline-block;
+  width:16px;
+  height:16px;
+  border:2px solid var(--border);
+  border-top-color:var(--primary);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  vertical-align:-3px;
+  margin-left:6px;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@media(max-width:700px){
+
+  .header{
+    padding:12px 15px;
+  }
+
+  .logo{
+    font-size:23px;
+  }
+
+  .logo-mark{
+    width:35px;
+    height:35px;
+  }
+
+  .container{
+    padding:30px 15px;
+  }
+
+  h1{
+    font-size:30px;
+  }
+
+  .tool-box{
+    padding:18px;
+  }
+
+  .content{
+    padding:22px 18px;
+  }
+
+}
+
+@media(max-width:430px){
+
+  .header{
+    gap:10px;
+  }
+
+  .home{
+    padding:7px 8px;
+  }
+
+  .theme-toggle{
+    width:38px;
+    height:38px;
+  }
+
+  h1{
+    font-size:26px;
+  }
+
+  .subtitle{
+    font-size:15px;
+  }
+
+  .upload-area{
+    padding:32px 15px;
+  }
+
+  .dimensions{
+    grid-template-columns:1fr;
+  }
+
+  .quality-row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  #qualityValue{
+    text-align:center;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+    transition:none !important;
+    animation:none !important;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header">
+
+    <a
+      class="logo"
+      href="../index.html"
+      aria-label="AdaaHub الرئيسية"
+    >
+
+      <span class="logo-mark">
+        A
+      </span>
+
+      Adaa<span>Hub</span>
+
+    </a>
+
+
+    <div class="nav">
+
+      <a
+        class="home"
+        href="../index.html"
+      >
+        الرئيسية
+      </a>
+
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="تفعيل الوضع الداكن"
+        title="تفعيل الوضع الداكن"
+      >
+        🌙
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <div class="badge">
+      ⚡ أداة مجانية وسريعة
+    </div>
+
+    <h1>
+      تغيير حجم الصور أونلاين مجانًا
+    </h1>
+
+    <p class="subtitle">
+      صغّر أو كبّر صورك بسهولة، وحدد العرض والارتفاع والجودة والصيغة المناسبة،
+      ثم حمّل الصورة الجديدة مباشرة من المتصفح دون رفعها إلى خادم AdaaHub.
+    </p>
+
+  </section>
+
+
+  <section class="tool-box">
+
+    <div class="upload-area">
+
+      <div class="upload-icon">
+        🖼️
+      </div>
+
+      <h2>
+        اختر صورة لتغيير حجمها
+      </h2>
+
+      <p>
+        يدعم JPG وJPEG وPNG وWebP — الحد الأقصى 25MB
+      </p>
+
+      <label
+        class="choose-button"
+        for="imageInput"
+      >
+        اختيار صورة
+      </label>
+
+      <input
+        id="imageInput"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+      >
+
+      <div
+        class="file-selected"
+        id="fileSelected"
+      ></div>
+
+      <div
+        class="status"
+        id="status"
+        aria-live="polite"
+      ></div>
+
+    </div>
+
+
+    <div
+      class="settings"
+      id="settings"
+    >
+
+      <h2>
+        إعدادات الصورة
+      </h2>
+
+
+      <div class="dimensions">
+
+        <div class="field">
+
+          <label for="width">
+            العرض بالبكسل
+          </label>
+
+          <input
+            type="number"
+            id="width"
+            min="1"
+            max="10000"
+            placeholder="مثال: 1200"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="height">
+            الارتفاع بالبكسل
+          </label>
+
+          <input
+            type="number"
+            id="height"
+            min="1"
+            max="10000"
+            placeholder="مثال: 800"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="lock-row">
+
+        <input
+          type="checkbox"
+          id="keepRatio"
+          checked
+        >
+
+        <label for="keepRatio">
+          الحفاظ على تناسب أبعاد الصورة
+        </label>
+
+      </div>
+
+
+      <div class="format-section">
+
+        <label for="format">
+          صيغة الصورة الناتجة
+        </label>
+
+        <select id="format">
+
+          <option value="image/jpeg">
+            JPG
+          </option>
+
+          <option value="image/png">
+            PNG
+          </option>
+
+          <option value="image/webp">
+            WebP
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div
+        class="quality-section"
+        id="qualitySection"
+      >
+
+        <label for="quality">
+          جودة الصورة
+        </label>
+
+        <div class="quality-row">
+
+          <input
+            type="range"
+            id="quality"
+            min="10"
+            max="100"
+            value="85"
+          >
+
+          <span id="qualityValue">
+            85%
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="resize-button"
+        id="resizeButton"
+        type="button"
+      >
+        📐 تغيير حجم الصورة
+      </button>
+
+    </div>
+
+
+    <div
+      class="result"
+      id="result"
+    >
+
+      <h2>
+        ✅ تم تغيير حجم الصورة
+      </h2>
+
+
+      <img
+        id="preview"
+        class="preview"
+        alt="معاينة الصورة بعد تغيير الحجم"
+      >
+
+
+      <div class="file-info">
+
+        <div id="originalInfo"></div>
+
+        <div id="newDimensions"></div>
+
+        <div id="newFileInfo"></div>
+
+      </div>
+
+
+      <a
+        id="downloadButton"
+        class="download-button"
+        download
+      >
+        ⬇️ تحميل الصورة
+      </a>
+
+
+      <br>
+
+
+      <button
+        class="reset-button"
+        id="resetButton"
+        type="button"
+      >
+        تغيير صورة أخرى
+      </button>
+
+    </div>
+
+
+    <div class="privacy-note">
+
+      🔒 <strong>الخصوصية:</strong>
+      تتم معالجة الصورة داخل متصفحك مباشرة،
+      ولا يتم رفعها إلى خادم AdaaHub.
+
+    </div>
+
+  </section>
+
+
+  <section class="content">
+
+    <h2>
+      تغيير حجم الصور أونلاين مجانًا
+    </h2>
+
+    <p>
+      تتيح لك أداة تغيير حجم الصور من AdaaHub تعديل أبعاد الصور
+      بسهولة من الهاتف أو الكمبيوتر بدون الحاجة إلى تثبيت برنامج.
+      يمكنك تحديد العرض والارتفاع بالبكسل، مع إمكانية الحفاظ على
+      تناسب أبعاد الصورة حتى لا تظهر بشكل مشوه.
+    </p>
+
+
+    <h3>
+      كيفية تغيير حجم الصورة؟
+    </h3>
+
+    <ol>
+
+      <li>
+        اضغط على «اختيار صورة».
+      </li>
+
+      <li>
+        حدد صورة JPG أو PNG أو WebP من جهازك.
+      </li>
+
+      <li>
+        أدخل العرض والارتفاع المطلوبين.
+      </li>
+
+      <li>
+        فعّل «الحفاظ على تناسب أبعاد الصورة» إذا كنت تريد الحفاظ
+        على شكل الصورة الأصلي.
+      </li>
+
+      <li>
+        اختر صيغة الصورة الناتجة والجودة المناسبة.
+      </li>
+
+      <li>
+        اضغط على «تغيير حجم الصورة».
+      </li>
+
+      <li>
+        بعد ظهور النتيجة، اضغط «تحميل الصورة».
+      </li>
+
+    </ol>
+
+
+    <h3>
+      لماذا قد تحتاج إلى تغيير حجم الصورة؟
+    </h3>
+
+    <p>
+      تغيير أبعاد الصور مفيد عندما تحتاج إلى صورة بمقاس معين
+      لموقع إلكتروني أو تطبيق أو منشور على وسائل التواصل الاجتماعي،
+      أو عندما تريد تقليل أبعاد صورة كبيرة قبل استخدامها في مشروع.
+    </p>
+
+
+    <h3>
+      هل يتم رفع الصور إلى الإنترنت؟
+    </h3>
+
+    <p>
+      لا. تتم معالجة الصور داخل متصفح جهازك باستخدام JavaScript،
+      ولا يتم إرسال ملف الصورة إلى خادم AdaaHub أثناء عملية تغيير الحجم.
+    </p>
+
+
+    <h3>
+      ما الصيغ المدعومة؟
+    </h3>
+
+    <p>
+      يمكنك اختيار صورة بصيغة JPG أو JPEG أو PNG أو WebP،
+      ثم حفظ النتيجة بصيغة JPG أو PNG أو WebP.
+    </p>
+
+
+    <div class="faq">
+
+      <h2>
+        الأسئلة الشائعة
+      </h2>
+
+
+      <details>
+
+        <summary>
+          هل أداة تغيير حجم الصور مجانية؟
+        </summary>
+
+        <p>
+          نعم، يمكنك استخدام الأداة مجانًا من متصفح الإنترنت.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل تعمل الأداة على الهاتف؟
+        </summary>
+
+        <p>
+          نعم، تم تصميم الأداة لتعمل على الهواتف والأجهزة اللوحية
+          وأجهزة الكمبيوتر الحديثة.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل يمكن الحفاظ على تناسب الصورة؟
+        </summary>
+
+        <p>
+          نعم، يكون خيار الحفاظ على تناسب الأبعاد مفعّلًا بشكل افتراضي.
+          ويمكنك إلغاء تفعيله إذا كنت تريد تحديد العرض والارتفاع بشكل مستقل.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          ما الصيغ التي يمكن حفظ الصورة بها؟
+        </summary>
+
+        <p>
+          يمكنك حفظ الصورة الناتجة بصيغة JPG أو PNG أو WebP.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل أحتاج إلى تثبيت برنامج؟
+        </summary>
+
+        <p>
+          لا، الأداة تعمل مباشرة من متصفح الإنترنت دون الحاجة إلى تثبيت برنامج.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          ما الحد الأقصى لحجم الصورة؟
+        </summary>
+
+        <p>
+          يمكن للأداة استقبال ملفات يصل حجمها إلى 25MB.
+          وقد يعتمد الأداء الفعلي أيضًا على إمكانيات الجهاز والمتصفح.
+        </p>
+
+      </details>
+
+    </div>
+
+
+    <div class="tools-links">
+
+      <h3>
+        أدوات قد تهمك
+      </h3>
+
+      <ul>
+
+        <li>
+          <a href="compress.html">
+            ضغط الصور وتقليل حجمها
+          </a>
+        </li>
+
+        <li>
+          <a href="webp.html">
+            تحويل الصور إلى WebP
+          </a>
+        </li>
+
+        <li>
+          <a href="crop.html">
+            قص الصور أونلاين
+          </a>
+        </li>
+
+        <li>
+          <a href="rotate.html">
+            تدوير الصور
+          </a>
+        </li>
+
+        <li>
+          <a href="jpg-to-png.html">
+            تحويل JPG إلى PNG
+          </a>
+        </li>
+
+        <li>
+          <a href="png-to-jpg.html">
+            تحويل PNG إلى JPG
+          </a>
+        </li>
+
+        <li>
+          <a href="webp-to-jpg.html">
+            تحويل WebP إلى JPG
+          </a>
+        </li>
+
+        <li>
+          <a href="image-info.html">
+            معرفة معلومات الصورة
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div>
+    © 2026 AdaaHub - جميع الحقوق محفوظة
+  </div>
+
+  <div style="margin-top:8px;">
+
+    <a href="../index.html">
+      الرئيسية
+    </a>
+
+    |
+
+    <a href="../pages/about.html">
+      من نحن
+    </a>
+
+    |
+
+    <a href="../pages/privacy.html">
+      الخصوصية
+    </a>
+
+    |
+
+    <a href="../pages/terms.html">
+      الشروط والأحكام
+    </a>
+
+    |
+
+    <a href="../pages/contact.html">
+      اتصل بنا
+    </a>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* منع ظهور الوضع الفاتح قبل تحميل الصفحة */
+
+(function(){
+
+  const savedTheme =
+    localStorage.getItem("adaahub-theme");
+
+  if(savedTheme === "dark"){
+
+    document.documentElement.classList.add("dark");
+
+  }
+
+})();
+
+
+/* الوضع الليلي */
+
+const themeToggle =
+  document.getElementById("themeToggle");
+
+
+function updateThemeButton(){
+
+  const isDark =
+    document.documentElement.classList.contains("dark");
+
+
+  themeToggle.textContent =
+    isDark ? "☀️" : "🌙";
+
+
+  themeToggle.setAttribute(
+    "aria-label",
+    isDark
+      ? "تفعيل الوضع الفاتح"
+      : "تفعيل الوضع الداكن"
+  );
+
+
+  themeToggle.setAttribute(
+    "title",
+    isDark
+      ? "تفعيل الوضع الفاتح"
+      : "تفعيل الوضع الداكن"
+  );
+
+}
+
+
+themeToggle.addEventListener(
+  "click",
+  function(){
+
+    const isDark =
+      document.documentElement.classList.toggle("dark");
+
+
+    localStorage.setItem(
+      "adaahub-theme",
+      isDark ? "dark" : "light"
+    );
+
+
+    updateThemeButton();
+
+  }
+);
+
+
+updateThemeButton();
+
+
+/* عناصر الأداة */
+
+const imageInput =
+  document.getElementById("imageInput");
+
+const settings =
+  document.getElementById("settings");
+
+const widthInput =
+  document.getElementById("width");
+
+const heightInput =
+  document.getElementById("height");
+
+const keepRatio =
+  document.getElementById("keepRatio");
+
+const format =
+  document.getElementById("format");
+
+const quality =
+  document.getElementById("quality");
+
+const qualityValue =
+  document.getElementById("qualityValue");
+
+const qualitySection =
+  document.getElementById("qualitySection");
+
+const resizeButton =
+  document.getElementById("resizeButton");
+
+const result =
+  document.getElementById("result");
+
+const preview =
+  document.getElementById("preview");
+
+const originalInfo =
+  document.getElementById("originalInfo");
+
+const newDimensions =
+  document.getElementById("newDimensions");
+
+const newFileInfo =
+  document.getElementById("newFileInfo");
+
+const downloadButton =
+  document.getElementById("downloadButton");
+
+const resetButton =
+  document.getElementById("resetButton");
+
+const fileSelected =
+  document.getElementById("fileSelected");
+
+const status =
+  document.getElementById("status");
+
+
+let selectedFile = null;
+
+let originalWidth = 0;
+
+let originalHeight = 0;
+
+let convertedUrl = null;
+
+
+const MAX_FILE_SIZE =
+  25 * 1024 * 1024;
+
+const MAX_DIMENSION =
+  10000;
+
+
+/* رسائل الحالة */
+
+function setStatus(
+  message,
+  type = ""
+){
+
+  status.textContent =
+    message;
+
+  status.style.color =
+    type === "error"
+      ? "var(--danger)"
+      : type === "success"
+        ? "var(--success)"
+        : "var(--muted)";
+
+}
+
+
+/* اختيار الصورة */
+
+imageInput.addEventListener(
+  "change",
+  function(){
+
+    const file =
+      this.files[0];
+
+
+    if(!file){
+      return;
+    }
+
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+
+    if(!allowedTypes.includes(file.type)){
+
+      setStatus(
+        "يرجى اختيار صورة بصيغة JPG أو PNG أو WebP.",
+        "error"
+      );
+
+      imageInput.value = "";
+
+      return;
+
+    }
+
+
+    if(file.size > MAX_FILE_SIZE){
+
+      setStatus(
+        "حجم الصورة أكبر من 25MB. يرجى اختيار صورة أصغر.",
+        "error"
+      );
+
+      imageInput.value = "";
+
+      return;
+
+    }
+
+
+    selectedFile =
+      file;
+
+
+    setStatus("");
+
+
+    fileSelected.style.display =
+      "block";
+
+    fileSelected.innerHTML =
+      "📄 <strong>" +
+      escapeHtml(file.name) +
+      "</strong> — " +
+      formatSize(file.size);
+
+
+    const reader =
+      new FileReader();
+
+
+    reader.onload =
+      function(event){
+
+        const img =
+          new Image();
+
+
+        img.onload =
+          function(){
+
+            originalWidth =
+              img.naturalWidth;
+
+            originalHeight =
+              img.naturalHeight;
+
+
+            widthInput.value =
+              originalWidth;
+
+            heightInput.value =
+              originalHeight;
+
+
+            settings.style.display =
+              "block";
+
+            result.style.display =
+              "none";
+
+
+            updateQualityVisibility();
+
+          };
+
+
+        img.onerror =
+          function(){
+
+            setStatus(
+              "تعذر قراءة الصورة. يرجى تجربة صورة أخرى.",
+              "error"
+            );
+
+            resetTool();
+
+          };
+
+
+        img.src =
+          event.target.result;
+
+      };
+
+
+    reader.onerror =
+      function(){
+
+        setStatus(
+          "حدث خطأ أثناء قراءة الصورة.",
+          "error"
+        );
+
+      };
+
+
+    reader.readAsDataURL(file);
+
+  }
+);
+
+
+/* الحفاظ على النسبة عند تغيير العرض */
+
+widthInput.addEventListener(
+  "input",
+  function(){
+
+    if(!keepRatio.checked){
+      return;
+    }
+
+
+    if(
+      originalWidth === 0 ||
+      originalHeight === 0
+    ){
+      return;
+    }
+
+
+    const newWidth =
+      parseInt(
+        widthInput.value,
+        10
+      );
+
+
+    if(!newWidth){
+      return;
+    }
+
+
+    const ratio =
+      originalHeight /
+      originalWidth;
+
+
+    heightInput.value =
+      Math.max(
+        1,
+        Math.round(
+          newWidth * ratio
+        )
+      );
+
+  }
+);
+
+
+/* الحفاظ على النسبة عند تغيير الارتفاع */
+
+heightInput.addEventListener(
+  "input",
+  function(){
+
+    if(!keepRatio.checked){
+      return;
+    }
+
+
+    if(
+      originalWidth === 0 ||
+      originalHeight === 0
+    ){
+      return;
+    }
+
+
+    const newHeight =
+      parseInt(
+        heightInput.value,
+        10
+      );
+
+
+    if(!newHeight){
+      return;
+    }
+
+
+    const ratio =
+      originalWidth /
+      originalHeight;
+
+
+    widthInput.value =
+      Math.max(
+        1,
+        Math.round(
+          newHeight * ratio
+        )
+      );
+
+  }
+);
+
+
+/* الجودة */
+
+quality.addEventListener(
+  "input",
+  function(){
+
+    qualityValue.textContent =
+      this.value + "%";
+
+  }
+);
+
+
+/* الصيغة */
+
+format.addEventListener(
+  "change",
+  function(){
+
+    updateQualityVisibility();
+
+  }
+);
+
+
+function updateQualityVisibility(){
+
+  if(format.value === "image/png"){
+
+    qualitySection.style.display =
+      "none";
+
+  }else{
+
+    qualitySection.style.display =
+      "block";
+
+  }
+
+}
+
+
+/* تغيير الحجم */
+
+resizeButton.addEventListener(
+  "click",
+  function(){
+
+    if(!selectedFile){
+
+      setStatus(
+        "اختر صورة أولًا.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    const newWidth =
+      parseInt(
+        widthInput.value,
+        10
+      );
+
+
+    const newHeight =
+      parseInt(
+        heightInput.value,
+        10
+      );
+
+
+    if(
+      !Number.isFinite(newWidth) ||
+      !Number.isFinite(newHeight) ||
+      newWidth < 1 ||
+      newHeight < 1
+    ){
+
+      setStatus(
+        "أدخل عرضًا وارتفاعًا صحيحين.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      newWidth > MAX_DIMENSION ||
+      newHeight > MAX_DIMENSION
+    ){
+
+      setStatus(
+        "الحد الأقصى للعرض أو الارتفاع هو 10000 بكسل.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    const totalPixels =
+      newWidth * newHeight;
+
+
+    if(totalPixels > 50000000){
+
+      setStatus(
+        "الأبعاد المطلوبة كبيرة جدًا وقد تستهلك ذاكرة الجهاز. استخدم أبعادًا أصغر.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    resizeButton.disabled =
+      true;
+
+    resizeButton.innerHTML =
+      '<span class="spinner"></span> جارٍ تغيير الحجم...';
+
+
+    setStatus(
+      "جارٍ تجهيز الصورة..."
+    );
+
+
+    const reader =
+      new FileReader();
+
+
+    reader.onload =
+      function(event){
+
+        const img =
+          new Image();
+
+
+        img.onload =
+          function(){
+
+            try{
+
+              const canvas =
+                document.createElement(
+                  "canvas"
+                );
+
+
+              canvas.width =
+                newWidth;
+
+              canvas.height =
+                newHeight;
+
+
+              const context =
+                canvas.getContext(
+                  "2d",
+                  {
+                    alpha:true
+                  }
+                );
+
+
+              if(!context){
+
+                throw new Error(
+                  "Canvas غير متاح"
+                );
+
+              }
+
+
+              /*
+                عند التحويل إلى JPG،
+                نضع خلفية بيضاء حتى لا تظهر
+                المناطق الشفافة باللون الأسود.
+              */
+
+              if(format.value === "image/jpeg"){
+
+                context.fillStyle =
+                  "#ffffff";
+
+                context.fillRect(
+                  0,
+                  0,
+                  newWidth,
+                  newHeight
+                );
+
+              }
+
+
+              context.drawImage(
+                img,
+                0,
+                0,
+                newWidth,
+                newHeight
+              );
+
+
+              const selectedQuality =
+                parseInt(
+                  quality.value,
+                  10
+                ) / 100;
+
+
+              canvas.toBlob(
+                function(blob){
+
+                  if(!blob){
+
+                    setStatus(
+                      "تعذر إنشاء الملف. جرّب أبعادًا أصغر.",
+                      "error"
+                    );
+
+                    resizeButton.disabled =
+                      false;
+
+                    resizeButton.textContent =
+                      "📐 تغيير حجم الصورة";
+
+                    return;
+
+                  }
+
+
+                  if(convertedUrl){
+
+                    URL.revokeObjectURL(
+                      convertedUrl
+                    );
+
+                  }
+
+
+                  convertedUrl =
+                    URL.createObjectURL(
+                      blob
+                    );
+
+
+                  preview.src =
+                    convertedUrl;
+
+
+                  originalInfo.innerHTML =
+                    "الأبعاد الأصلية: <strong>" +
+                    originalWidth +
+                    " × " +
+                    originalHeight +
+                    " بكسل</strong><br>" +
+                    "حجم الملف الأصلي: <strong>" +
+                    formatSize(
+                      selectedFile.size
+                    ) +
+                    "</strong>";
+
+
+                  newDimensions.innerHTML =
+                    "الأبعاد الجديدة: <strong>" +
+                    newWidth +
+                    " × " +
+                    newHeight +
+                    " بكسل</strong>";
+
+
+                  newFileInfo.innerHTML =
+                    "حجم الملف الجديد: <strong>" +
+                    formatSize(
+                      blob.size
+                    ) +
+                    "</strong>";
+
+
+                  downloadButton.href =
+                    convertedUrl;
+
+
+                  downloadButton.download =
+                    createFileName(
+                      selectedFile.name,
+                      format.value
+                    );
+
+
+                  result.style.display =
+                    "block";
+
+
+                  resizeButton.disabled =
+                    false;
+
+                  resizeButton.textContent =
+                    "📐 تغيير حجم الصورة";
+
+
+                  setStatus(
+                    "تم تغيير حجم الصورة بنجاح.",
+                    "success"
+                  );
+
+
+                  result.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                  });
+
+                },
+                format.value,
+                selectedQuality
+              );
+
+            }catch(error){
+
+              console.error(error);
+
+              setStatus(
+                "تعذر إنشاء الصورة الجديدة. جرّب أبعادًا أصغر.",
+                "error"
+              );
+
+              resizeButton.disabled =
+                false;
+
+              resizeButton.textContent =
+                "📐 تغيير حجم الصورة";
+
+            }
+
+          };
+
+
+        img.onerror =
+          function(){
+
+            setStatus(
+              "تعذر قراءة الصورة.",
+              "error"
+            );
+
+            resizeButton.disabled =
+              false;
+
+            resizeButton.textContent =
+              "📐 تغيير حجم الصورة";
+
+          };
+
+
+        img.src =
+          event.target.result;
+
+      };
+
+
+    reader.onerror =
+      function(){
+
+        setStatus(
+          "حدث خطأ أثناء قراءة الصورة.",
+          "error"
+        );
+
+        resizeButton.disabled =
+          false;
+
+        resizeButton.textContent =
+          "📐 تغيير حجم الصورة";
+
+      };
+
+
+    reader.readAsDataURL(
+      selectedFile
+    );
+
+  }
+);
+
+
+/* إعادة الأداة */
+
+resetButton.addEventListener(
+  "click",
+  function(){
+
+    resetTool();
+
+  }
+);
+
+
+function resetTool(){
+
+  if(convertedUrl){
+
+    URL.revokeObjectURL(
+      convertedUrl
+    );
+
+    convertedUrl =
+      null;
+
+  }
+
+
+  imageInput.value = "";
+
+  selectedFile = null;
+
+  originalWidth = 0;
+
+  originalHeight = 0;
+
+
+  settings.style.display =
+    "none";
+
+
+  result.style.display =
+    "none";
+
+
+  fileSelected.style.display =
+    "none";
+
+
+  fileSelected.textContent =
+    "";
+
+
+  preview.removeAttribute(
+    "src"
+  );
+
+
+  downloadButton.removeAttribute(
+    "href"
+  );
+
+
+  downloadButton.removeAttribute(
+    "download"
+  );
+
+
+  widthInput.value = "";
+
+  heightInput.value = "";
+
+
+  format.value =
+    "image/jpeg";
+
+
+  quality.value =
+    85;
+
+
+  qualityValue.textContent =
+    "85%";
+
+
+  keepRatio.checked =
+    true;
+
+
+  resizeButton.disabled =
+    false;
+
+  resizeButton.textContent =
+    "📐 تغيير حجم الصورة";
+
+
+  setStatus("");
+
+  updateQualityVisibility();
+
+}
+
+
+/* تنسيق حجم الملفات */
+
+function formatSize(bytes){
+
+  if(bytes < 1024){
+
+    return (
+      bytes +
+      " بايت"
+    );
+
+  }
+
+
+  if(bytes < 1024 * 1024){
+
+    return (
+      bytes / 1024
+    ).toFixed(1) +
+    " KB";
+
+  }
+
+
+  return (
+    bytes /
+    (1024 * 1024)
+  ).toFixed(2) +
+  " MB";
+
+}
+
+
+/* إنشاء اسم الملف */
+
+function createFileName(
+  originalName,
+  selectedFormat
+){
+
+  const name =
+    originalName.replace(
+      /\.[^/.]+$/,
+      ""
+    );
+
+
+  let extension =
+    "jpg";
+
+
+  if(
+    selectedFormat ===
+    "image/png"
+  ){
+
+    extension =
+      "png";
+
+  }
+
+
+  if(
+    selectedFormat ===
+    "image/webp"
+  ){
+
+    extension =
+      "webp";
+
+  }
+
+
+  return (
+    name +
+    "-adaahub." +
+    extension
+  );
+
+}
+
+
+/* حماية اسم الملف عند عرضه في HTML */
+
+function escapeHtml(text){
+
+  return text
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* تنظيف الرابط عند مغادرة الصفحة */
+
+window.addEventListener(
+  "beforeunload",
+  function(){
+
+    if(convertedUrl){
+
+      URL.revokeObjectURL(
+        convertedUrl
+      );
+
+    }
+
+  }
+);
+
+
+updateQualityVisibility();
+
+</script>
+
+</body>
+
+</html>
