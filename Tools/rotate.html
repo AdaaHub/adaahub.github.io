@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تدوير الصور أونلاين مجانًا | تدوير الصورة يمين ويسار | AdaaHub</title>
+
+<meta
+  name="description"
+  content="دوّر الصور أونلاين مجانًا إلى اليمين أو اليسار بزاوية 90 أو 180 درجة، ثم حمّل الصورة مباشرة من المتصفح بدون رفعها إلى خوادم AdaaHub."
+>
+
+<meta name="robots" content="index, follow">
+
+<link
+  rel="canonical"
+  href="https://adaahub.github.io/adaahub/tools/rotate.html"
+>
+
+<script>
+(function(){
+  const savedTheme = localStorage.getItem("adaahub-theme");
+
+  if(savedTheme === "dark"){
+    document.documentElement.classList.add("dark");
+  }
+})();
+</script>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --primary:#2563eb;
+  --primary-dark:#1d4ed8;
+  --primary-soft:#eff6ff;
+  --bg:#f6f8fc;
+  --surface:#ffffff;
+  --text:#111827;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --shadow:0 12px 35px rgba(15,23,42,.07);
+}
+
+html.dark{
+  --primary:#60a5fa;
+  --primary-dark:#93c5fd;
+  --primary-soft:#172554;
+  --bg:#0b1120;
+  --surface:#111827;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:#243044;
+  --success:#4ade80;
+  --danger:#f87171;
+  --shadow:0 12px 35px rgba(0,0,0,.25);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(37,99,235,.08),
+      transparent 420px
+    ),
+    var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  transition:
+    background .25s ease,
+    color .25s ease;
+}
+
+button,
+input{
+  font-family:inherit;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.88);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+
+html.dark header{
+  background:rgba(17,24,39,.88);
+}
+
+.header{
+  max-width:1050px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:var(--text);
+  text-decoration:none;
+  font-size:25px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.logo-mark{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:11px;
+  color:#fff;
+  font-size:21px;
+  font-weight:900;
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #60a5fa
+  );
+  box-shadow:0 7px 18px rgba(37,99,235,.25);
+}
+
+.logo span{
+  color:var(--primary);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.home{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:700;
+  padding:8px 11px;
+  border-radius:9px;
+}
+
+.home:hover{
+  background:var(--primary-soft);
+}
+
+.theme-toggle{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:18px;
+  transition:.2s;
+}
+
+.theme-toggle:hover{
+  border-color:var(--primary);
+  transform:translateY(-1px);
+}
+
+.container{
+  max-width:950px;
+  margin:0 auto;
+  padding:42px 20px 20px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+h1{
+  margin:0 0 10px;
+  font-size:34px;
+  line-height:1.35;
+  letter-spacing:-.5px;
+}
+
+.subtitle{
+  max-width:720px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.tool-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.upload-box{
+  border:2px dashed var(--border);
+  border-radius:16px;
+  padding:38px 20px;
+  text-align:center;
+  background:
+    linear-gradient(
+      180deg,
+      var(--surface),
+      var(--bg)
+    );
+  transition:.2s;
+  cursor:pointer;
+}
+
+.upload-box:hover{
+  border-color:var(--primary);
+  background:var(--primary-soft);
+}
+
+.upload-icon{
+  width:64px;
+  height:64px;
+  margin:0 auto 13px;
+  border-radius:17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  background:var(--primary-soft);
+}
+
+.upload-box h2{
+  margin:0 0 7px;
+  font-size:21px;
+}
+
+.upload-box p{
+  color:var(--muted);
+  margin:0 0 18px;
+  font-size:14px;
+}
+
+input[type="file"]{
+  display:none;
+}
+
+.choose-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--primary);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.choose-button:hover{
+  background:var(--primary-dark);
+  transform:translateY(-1px);
+}
+
+.file-selected{
+  display:none;
+  max-width:100%;
+  margin:16px auto 0;
+  padding:10px 13px;
+  border:1px solid #bfdbfe;
+  background:var(--primary-soft);
+  color:var(--primary);
+  border-radius:10px;
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+
+.status{
+  display:none;
+  margin-top:15px;
+  padding:11px 14px;
+  border-radius:10px;
+  text-align:center;
+  font-size:14px;
+  border:1px solid var(--border);
+}
+
+.status.show{
+  display:block;
+}
+
+.status.success{
+  color:var(--success);
+  background:rgba(22,163,74,.08);
+  border-color:rgba(22,163,74,.25);
+}
+
+.status.error{
+  color:var(--danger);
+  background:rgba(220,38,38,.08);
+  border-color:rgba(220,38,38,.25);
+}
+
+.editor{
+  display:none;
+  margin-top:22px;
+}
+
+.preview{
+  width:100%;
+  overflow:auto;
+  background:#111827;
+  border-radius:14px;
+  padding:10px;
+  text-align:center;
+  -webkit-overflow-scrolling:touch;
+}
+
+#canvas{
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:auto;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+button,
+.download-btn{
+  border:0;
+  border-radius:10px;
+  padding:12px 20px;
+  font-size:15px;
+  cursor:pointer;
+  transition:.2s;
+  font-family:inherit;
+}
+
+button:hover:not(:disabled),
+.download-btn:hover{
+  transform:translateY(-1px);
+}
+
+.rotate-btn{
+  background:var(--primary);
+  color:#fff;
+}
+
+.rotate-btn:hover:not(:disabled){
+  background:var(--primary-dark);
+}
+
+.reset-btn{
+  background:var(--border);
+  color:var(--text);
+}
+
+.download-btn{
+  display:none;
+  background:var(--success);
+  color:#fff;
+  text-decoration:none;
+}
+
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.info{
+  margin-top:18px;
+  padding:14px 16px;
+  border-radius:12px;
+  background:var(--primary-soft);
+  border:1px solid rgba(37,99,235,.18);
+  color:var(--primary);
+  text-align:center;
+  font-size:14px;
+}
+
+.content{
+  margin-top:30px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.content h2{
+  margin-top:0;
+  font-size:24px;
+}
+
+.content h3{
+  font-size:19px;
+  margin-top:25px;
+}
+
+.content p{
+  color:var(--muted);
+}
+
+.faq{
+  margin-top:30px;
+}
+
+.faq details{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+
+.faq summary{
+  cursor:pointer;
+  font-weight:700;
+}
+
+.faq p{
+  margin-bottom:0;
+}
+
+.tools-links{
+  margin-top:30px;
+  padding-top:22px;
+  border-top:1px solid var(--border);
+}
+
+.tools-links h3{
+  margin-top:0;
+}
+
+.tools-links ul{
+  padding-right:22px;
+}
+
+.tools-links li{
+  margin-bottom:8px;
+}
+
+.tools-links a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:700;
+}
+
+.tools-links a:hover{
+  text-decoration:underline;
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:32px 20px;
+  margin-top:10px;
+  font-size:14px;
+}
+
+footer a{
+  color:var(--primary);
+  text-decoration:none;
+  margin:0 5px;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
+
+.spinner{
+  display:inline-block;
+  width:15px;
+  height:15px;
+  border:2px solid rgba(255,255,255,.45);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  vertical-align:-2px;
+  margin-left:5px;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@media(max-width:700px){
+
+  .header{
+    padding:12px 15px;
+  }
+
+  .container{
+    padding:30px 15px 15px;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  .tool-card{
+    padding:18px;
+  }
+
+  .content{
+    padding:22px 18px;
+  }
+
+}
+
+@media(max-width:430px){
+
+  .header{
+    flex-wrap:wrap;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  .logo-mark{
+    width:35px;
+    height:35px;
+  }
+
+  .nav{
+    width:100%;
+    justify-content:flex-end;
+  }
+
+  .upload-box{
+    padding:30px 14px;
+  }
+
+  .controls{
+    flex-direction:column;
+  }
+
+  button,
+  .download-btn{
+    width:100%;
+    text-align:center;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header">
+
+    <a
+      class="logo"
+      href="../index.html"
+      aria-label="AdaaHub الرئيسية"
+    >
+
+      <span class="logo-mark">
+        A
+      </span>
+
+      <span>
+        Adaa<span>Hub</span>
+      </span>
+
+    </a>
+
+    <nav class="nav">
+
+      <a
+        class="home"
+        href="../index.html"
+      >
+        الرئيسية
+      </a>
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="تفعيل الوضع الليلي"
+        title="الوضع الليلي"
+      >
+        🌙
+      </button>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <div class="badge">
+      ⚡ أداة مجانية وسريعة
+    </div>
+
+    <h1>
+      تدوير الصور أونلاين مجانًا
+    </h1>
+
+    <p class="subtitle">
+      قم بتدوير صورتك إلى اليمين أو اليسار بسهولة،
+      ثم حمّل النسخة الجديدة مباشرة من جهازك.
+    </p>
+
+  </section>
+
+
+  <section class="tool-card">
+
+    <label
+      class="upload-box"
+      for="imageInput"
+    >
+
+      <div class="upload-icon">
+        🔄
+      </div>
+
+      <h2>
+        اختر صورة للبدء
+      </h2>
+
+      <p>
+        JPG أو PNG أو WebP — حتى 25 ميجابايت
+      </p>
+
+      <span class="choose-button">
+        اختيار صورة
+      </span>
+
+      <input
+        type="file"
+        id="imageInput"
+        accept="image/jpeg,image/png,image/webp"
+      >
+
+    </label>
+
+
+    <div
+      class="file-selected"
+      id="fileSelected"
+    ></div>
+
+
+    <div
+      class="status"
+      id="status"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+
+    <div
+      class="editor"
+      id="editor"
+    >
+
+      <div class="preview">
+
+        <canvas
+          id="canvas"
+          aria-label="معاينة الصورة"
+        ></canvas>
+
+      </div>
+
+
+      <div class="controls">
+
+        <button
+          type="button"
+          class="rotate-btn"
+          id="leftBtn"
+        >
+          ↩️ تدوير لليسار 90°
+        </button>
+
+
+        <button
+          type="button"
+          class="rotate-btn"
+          id="rightBtn"
+        >
+          ↪️ تدوير لليمين 90°
+        </button>
+
+
+        <button
+          type="button"
+          class="rotate-btn"
+          id="rotate180Btn"
+        >
+          🔄 تدوير 180°
+        </button>
+
+
+        <button
+          type="button"
+          class="reset-btn"
+          id="resetBtn"
+        >
+          إعادة ضبط
+        </button>
+
+
+        <a
+          class="download-btn"
+          id="downloadBtn"
+          download
+        >
+          ⬇️ تحميل الصورة
+        </a>
+
+      </div>
+
+
+      <div
+        class="status"
+        id="editorStatus"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+    </div>
+
+
+    <div class="info">
+
+      🔒 <strong>خصوصيتك مهمة:</strong>
+      تتم معالجة الصورة بالكامل داخل متصفحك،
+      ولا يتم رفع الصور إلى خوادم AdaaHub.
+
+    </div>
+
+  </section>
+
+
+  <section class="content">
+
+    <h2>
+      طريقة تدوير الصورة
+    </h2>
+
+    <p>
+      اختر الصورة التي تريد تدويرها من جهازك، ثم استخدم أزرار
+      التدوير لتغيير اتجاه الصورة إلى اليمين أو اليسار.
+      يمكنك تدوير الصورة عدة مرات قبل تحميل النتيجة.
+    </p>
+
+    <ol>
+
+      <li>
+        اضغط على «اختيار صورة».
+      </li>
+
+      <li>
+        اختر صورة JPG أو PNG أو WebP من جهازك.
+      </li>
+
+      <li>
+        استخدم زر «تدوير لليمين» أو «تدوير لليسار».
+      </li>
+
+      <li>
+        يمكنك استخدام زر «تدوير 180°» لقلب اتجاه الصورة.
+      </li>
+
+      <li>
+        اضغط على «تحميل الصورة» لحفظ النتيجة.
+      </li>
+
+    </ol>
+
+
+    <h3>
+      مميزات أداة تدوير الصور
+    </h3>
+
+    <p>
+      تعمل الأداة مباشرة من المتصفح دون الحاجة إلى تثبيت برنامج
+      على الكمبيوتر أو الهاتف.
+    </p>
+
+    <p>
+      تدعم الصور بصيغ JPG وJPEG وPNG وWebP، ويمكنك تدوير الصورة
+      عدة مرات قبل حفظ النتيجة.
+    </p>
+
+    <p>
+      تتم معالجة الصورة محليًا داخل المتصفح، لذلك لا تحتاج إلى
+      إرسال ملفك إلى خادم خارجي.
+    </p>
+
+
+    <h3>
+      هل يمكن استخدام الأداة من الهاتف؟
+    </h3>
+
+    <p>
+      نعم، تعمل الأداة من الهواتف والأجهزة اللوحية وأجهزة الكمبيوتر
+      الحديثة مباشرة من المتصفح.
+    </p>
+
+
+    <div class="faq">
+
+      <h2>
+        الأسئلة الشائعة
+      </h2>
+
+
+      <details>
+
+        <summary>
+          هل يتم رفع الصورة إلى الموقع؟
+        </summary>
+
+        <p>
+          لا. تتم معالجة الصورة داخل متصفحك مباشرة،
+          ولا يتم رفع ملف الصورة إلى خوادم AdaaHub.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل يمكن تدوير الصورة أكثر من مرة؟
+        </summary>
+
+        <p>
+          نعم، يمكنك الضغط على أزرار التدوير عدة مرات
+          حتى تصل إلى الاتجاه المناسب.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل يمكن تدوير الصورة 180 درجة؟
+        </summary>
+
+        <p>
+          نعم، يوجد زر مخصص لتدوير الصورة 180 درجة.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          ما صيغ الصور المدعومة؟
+        </summary>
+
+        <p>
+          تدعم الأداة JPG وJPEG وPNG وWebP.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          هل تعمل الأداة على الهاتف؟
+        </summary>
+
+        <p>
+          نعم، يمكنك استخدامها من الهواتف والأجهزة اللوحية
+          وأجهزة الكمبيوتر.
+        </p>
+
+      </details>
+
+    </div>
+
+
+    <div class="tools-links">
+
+      <h3>
+        أدوات قد تهمك
+      </h3>
+
+      <ul>
+
+        <li>
+          <a href="compress.html">
+            ضغط الصور وتقليل حجمها
+          </a>
+        </li>
+
+        <li>
+          <a href="resize.html">
+            تغيير حجم الصور
+          </a>
+        </li>
+
+        <li>
+          <a href="crop.html">
+            قص الصور
+          </a>
+        </li>
+
+        <li>
+          <a href="webp.html">
+            تحويل الصور إلى WebP
+          </a>
+        </li>
+
+        <li>
+          <a href="jpg-to-png.html">
+            تحويل JPG إلى PNG
+          </a>
+        </li>
+
+        <li>
+          <a href="png-to-jpg.html">
+            تحويل PNG إلى JPG
+          </a>
+        </li>
+
+        <li>
+          <a href="webp-to-jpg.html">
+            تحويل WebP إلى JPG
+          </a>
+        </li>
+
+        <li>
+          <a href="image-info.html">
+            معرفة معلومات الصورة
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div>
+    © 2026 AdaaHub - جميع الحقوق محفوظة
+  </div>
+
+  <div style="margin-top:8px;">
+
+    <a href="../index.html">
+      الرئيسية
+    </a>
+
+    |
+
+    <a href="../pages/about.html">
+      من نحن
+    </a>
+
+    |
+
+    <a href="../pages/privacy.html">
+      الخصوصية
+    </a>
+
+    |
+
+    <a href="../pages/terms.html">
+      الشروط والأحكام
+    </a>
+
+    |
+
+    <a href="../pages/contact.html">
+      اتصل بنا
+    </a>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   الوضع الليلي
+========================= */
+
+const themeToggle =
+  document.getElementById("themeToggle");
+
+
+function updateThemeButton(){
+
+  const dark =
+    document.documentElement.classList.contains("dark");
+
+
+  themeToggle.textContent =
+    dark ? "☀️" : "🌙";
+
+
+  themeToggle.setAttribute(
+    "aria-label",
+    dark
+      ? "تفعيل الوضع الفاتح"
+      : "تفعيل الوضع الليلي"
+  );
+
+
+  themeToggle.setAttribute(
+    "title",
+    dark
+      ? "الوضع الفاتح"
+      : "الوضع الليلي"
+  );
+
+}
+
+
+updateThemeButton();
+
+
+themeToggle.addEventListener(
+  "click",
+  function(){
+
+    const dark =
+      document.documentElement.classList.toggle("dark");
+
+
+    localStorage.setItem(
+      "adaahub-theme",
+      dark ? "dark" : "light"
+    );
+
+
+    updateThemeButton();
+
+  }
+);
+
+
+/* =========================
+   عناصر الأداة
+========================= */
+
+const imageInput =
+  document.getElementById("imageInput");
+
+const editor =
+  document.getElementById("editor");
+
+const canvas =
+  document.getElementById("canvas");
+
+const ctx =
+  canvas.getContext("2d");
+
+const leftBtn =
+  document.getElementById("leftBtn");
+
+const rightBtn =
+  document.getElementById("rightBtn");
+
+const rotate180Btn =
+  document.getElementById("rotate180Btn");
+
+const resetBtn =
+  document.getElementById("resetBtn");
+
+const downloadBtn =
+  document.getElementById("downloadBtn");
+
+const fileSelected =
+  document.getElementById("fileSelected");
+
+const status =
+  document.getElementById("status");
+
+const editorStatus =
+  document.getElementById("editorStatus");
+
+
+const MAX_FILE_SIZE =
+  25 * 1024 * 1024;
+
+
+const MAX_CANVAS_DIMENSION =
+  10000;
+
+
+const MAX_CANVAS_PIXELS =
+  50000000;
+
+
+let image =
+  new Image();
+
+
+let angle =
+  0;
+
+
+let currentDownloadUrl =
+  null;
+
+
+let selectedFile =
+  null;
+
+
+/* =========================
+   رسائل الحالة
+========================= */
+
+function showStatus(
+  element,
+  message,
+  type
+){
+
+  element.textContent =
+    message;
+
+  element.className =
+    "status show " +
+    type;
+
+}
+
+
+function clearStatus(
+  element
+){
+
+  element.textContent =
+    "";
+
+  element.className =
+    "status";
+
+}
+
+
+/* =========================
+   اختيار الصورة
+========================= */
+
+imageInput.addEventListener(
+  "change",
+  function(){
+
+    const file =
+      this.files[0];
+
+
+    if(!file){
+      return;
+    }
+
+
+    clearStatus(status);
+
+    clearStatus(editorStatus);
+
+    clearDownload();
+
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+
+    if(!allowedTypes.includes(file.type)){
+
+      showStatus(
+        status,
+        "يرجى اختيار صورة بصيغة JPG أو PNG أو WebP.",
+        "error"
+      );
+
+
+      imageInput.value =
+        "";
+
+
+      return;
+
+    }
+
+
+    if(file.size > MAX_FILE_SIZE){
+
+      showStatus(
+        status,
+        "حجم الصورة أكبر من 25MB. يرجى اختيار صورة أصغر.",
+        "error"
+      );
+
+
+      imageInput.value =
+        "";
+
+
+      return;
+
+    }
+
+
+    selectedFile =
+      file;
+
+
+    fileSelected.textContent =
+      "📄 " +
+      file.name +
+      " — " +
+      formatSize(file.size);
+
+
+    fileSelected.style.display =
+      "block";
+
+
+    const reader =
+      new FileReader();
+
+
+    reader.onload =
+      function(event){
+
+        image.onload =
+          function(){
+
+            if(
+              image.naturalWidth >
+              MAX_CANVAS_DIMENSION ||
+              image.naturalHeight >
+              MAX_CANVAS_DIMENSION
+            ){
+
+              showStatus(
+                status,
+                "أبعاد الصورة كبيرة جدًا. يرجى استخدام صورة بأبعاد أقل من 10000 بكسل.",
+                "error"
+              );
+
+
+              resetTool(false);
+
+
+              return;
+
+            }
+
+
+            if(
+              image.naturalWidth *
+              image.naturalHeight >
+              MAX_CANVAS_PIXELS
+            ){
+
+              showStatus(
+                status,
+                "الصورة كبيرة جدًا للمعالجة داخل المتصفح. يرجى اختيار صورة بأبعاد أو دقة أقل.",
+                "error"
+              );
+
+
+              resetTool(false);
+
+
+              return;
+
+            }
+
+
+            angle =
+              0;
+
+
+            editor.style.display =
+              "block";
+
+
+            drawImage();
+
+
+            clearStatus(status);
+
+
+            clearStatus(editorStatus);
+
+
+            editor.scrollIntoView({
+              behavior:"smooth",
+              block:"start"
+            });
+
+          };
+
+
+        image.onerror =
+          function(){
+
+            showStatus(
+              status,
+              "تعذر قراءة الصورة. يرجى تجربة صورة أخرى.",
+              "error"
+            );
+
+
+            resetTool(false);
+
+          };
+
+
+        image.src =
+          event.target.result;
+
+      };
+
+
+    reader.onerror =
+      function(){
+
+        showStatus(
+          status,
+          "حدث خطأ أثناء قراءة الصورة.",
+          "error"
+        );
+
+      };
+
+
+    reader.readAsDataURL(file);
+
+  }
+);
+
+
+/* =========================
+   رسم الصورة
+========================= */
+
+function drawImage(){
+
+  if(
+    !image.naturalWidth ||
+    !image.naturalHeight
+  ){
+
+    return;
+
+  }
+
+
+  const normalizedAngle =
+    (
+      angle % 360 +
+      360
+    ) % 360;
+
+
+  let width =
+    image.naturalWidth;
+
+
+  let height =
+    image.naturalHeight;
+
+
+  if(
+    normalizedAngle === 90 ||
+    normalizedAngle === 270
+  ){
+
+    canvas.width =
+      height;
+
+
+    canvas.height =
+      width;
+
+  }else{
+
+    canvas.width =
+      width;
+
+
+    canvas.height =
+      height;
+
+  }
+
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+
+  ctx.save();
+
+
+  ctx.translate(
+    canvas.width / 2,
+    canvas.height / 2
+  );
+
+
+  ctx.rotate(
+    angle *
+    Math.PI /
+    180
+  );
+
+
+  ctx.drawImage(
+    image,
+    -width / 2,
+    -height / 2,
+    width,
+    height
+  );
+
+
+  ctx.restore();
+
+}
+
+
+/* =========================
+   تجهيز التحميل
+========================= */
+
+function updateDownload(){
+
+  downloadBtn.style.display =
+    "none";
+
+
+  showStatus(
+    editorStatus,
+    "⏳ جارٍ تجهيز الصورة للتحميل...",
+    "success"
+  );
+
+
+  canvas.toBlob(
+    function(blob){
+
+      if(!blob){
+
+        showStatus(
+          editorStatus,
+          "تعذر تجهيز الصورة للتحميل. يرجى المحاولة مرة أخرى.",
+          "error"
+        );
+
+
+        return;
+
+      }
+
+
+      clearDownload();
+
+
+      currentDownloadUrl =
+        URL.createObjectURL(
+          blob
+        );
+
+
+      downloadBtn.href =
+        currentDownloadUrl;
+
+
+      let name =
+        "image";
+
+
+      if(selectedFile){
+
+        name =
+          selectedFile.name.replace(
+            /\.[^/.]+$/,
+            ""
+          );
+
+      }
+
+
+      downloadBtn.download =
+        name +
+        "-adaahub-rotate.png";
+
+
+      downloadBtn.style.display =
+        "inline-flex";
+
+
+      showStatus(
+        editorStatus,
+        "تم تدوير الصورة. يمكنك الآن تحميل النتيجة.",
+        "success"
+      );
+
+    },
+    "image/png"
+  );
+
+}
+
+
+/* =========================
+   التدوير
+========================= */
+
+function rotate(degrees){
+
+  angle +=
+    degrees;
+
+
+  drawImage();
+
+
+  updateDownload();
+
+}
+
+
+leftBtn.addEventListener(
+  "click",
+  function(){
+
+    rotate(-90);
+
+  }
+);
+
+
+rightBtn.addEventListener(
+  "click",
+  function(){
+
+    rotate(90);
+
+  }
+);
+
+
+rotate180Btn.addEventListener(
+  "click",
+  function(){
+
+    rotate(180);
+
+  }
+);
+
+
+/* =========================
+   إعادة الضبط
+========================= */
+
+resetBtn.addEventListener(
+  "click",
+  function(){
+
+    resetTool(true);
+
+  }
+);
+
+
+function resetTool(
+  clearMessages
+){
+
+  clearDownload();
+
+
+  imageInput.value =
+    "";
+
+
+  selectedFile =
+    null;
+
+
+  editor.style.display =
+    "none";
+
+
+  fileSelected.style.display =
+    "none";
+
+
+  fileSelected.textContent =
+    "";
+
+
+  angle =
+    0;
+
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+
+  if(clearMessages){
+
+    clearStatus(status);
+
+    clearStatus(editorStatus);
+
+  }
+
+}
+
+
+/* =========================
+   تنظيف رابط التحميل
+========================= */
+
+function clearDownload(){
+
+  if(currentDownloadUrl){
+
+    URL.revokeObjectURL(
+      currentDownloadUrl
+    );
+
+
+    currentDownloadUrl =
+      null;
+
+  }
+
+
+  downloadBtn.removeAttribute(
+    "href"
+  );
+
+
+  downloadBtn.removeAttribute(
+    "download"
+  );
+
+
+  downloadBtn.style.display =
+    "none";
+
+}
+
+
+/* =========================
+   حجم الملف
+========================= */
+
+function formatSize(bytes){
+
+  if(bytes < 1024){
+
+    return (
+      bytes +
+      " بايت"
+    );
+
+  }
+
+
+  if(
+    bytes <
+    1024 * 1024
+  ){
+
+    return (
+      bytes /
+      1024
+    ).toFixed(1) +
+    " KB";
+
+  }
+
+
+  return (
+    bytes /
+    (1024 * 1024)
+  ).toFixed(2) +
+  " MB";
+
+}
+
+
+/* =========================
+   تنظيف الرابط عند مغادرة الصفحة
+========================= */
+
+window.addEventListener(
+  "beforeunload",
+  function(){
+
+    clearDownload();
+
+  }
+);
+
+</script>
+
+</body>
+
+</html>
