@@ -6,7 +6,7 @@
     <title>AdaaHub | مركز الأدوات اليومية المجانية</title>
     <meta
       name="description"
-      content="AdaaHub مركز الأدوات اليومية المجانية أونلاين. أدوات سريعة مثل تغيير الحجم، ضغط الصور، OCR، PDF، والعدّاد النصي."
+      content="AdaaHub مركز الأدوات اليومية المجانية أونلاين. أدوات سريعة مثل تغيير الحجم، ضغط الصور، OCR، PDF، والعدّاد الكلمات والحروف."
     />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="AdaaHub | مركز الأدوات اليومية المجانية" />
@@ -29,14 +29,8 @@
         --radius: 22px;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         font-family: Arial, Tahoma, sans-serif;
@@ -45,7 +39,6 @@
         line-height: 1.7;
         transition: background 0.25s ease, color 0.25s ease;
       }
-
       body::before,
       body::after {
         content: "";
@@ -56,32 +49,19 @@
         border-radius: 50%;
         z-index: -1;
       }
-
       body::before {
         top: -200px;
         right: -120px;
         background: rgba(37, 99, 235, 0.08);
       }
-
       body::after {
         left: -160px;
         bottom: -220px;
         background: rgba(99, 102, 241, 0.06);
       }
-
-      a {
-        text-decoration: none;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      .container {
-        width: min(1180px, calc(100% - 30px));
-        margin: 0 auto;
-      }
+      a { text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      .container { width: min(1180px, calc(100% - 30px)); margin: 0 auto; }
 
       header {
         position: sticky;
@@ -92,7 +72,6 @@
         -webkit-backdrop-filter: blur(18px);
         border-bottom: 1px solid rgba(226, 232, 240, 0.9);
       }
-
       .header {
         display: flex;
         align-items: center;
@@ -100,7 +79,6 @@
         gap: 20px;
         min-height: 80px;
       }
-
       .brand {
         display: inline-flex;
         align-items: center;
@@ -110,7 +88,6 @@
         letter-spacing: -0.6px;
         color: var(--text);
       }
-
       .brand-mark {
         width: 40px;
         height: 40px;
@@ -122,17 +99,12 @@
         box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
         font-size: 18px;
       }
-
-      .brand span {
-        color: var(--primary);
-      }
-
+      .brand span { color: var(--primary); }
       .nav {
         display: flex;
         align-items: center;
         gap: 8px;
       }
-
       .nav a,
       .lang-wrap {
         display: inline-flex;
@@ -145,24 +117,14 @@
         font-weight: 700;
         transition: 0.2s ease;
       }
-
-      .nav a:hover {
-        color: var(--primary);
-        background: var(--primary-soft);
-      }
-
+      .nav a:hover { color: var(--primary); background: var(--primary-soft); }
       .lang-wrap {
         border: 1px solid var(--border);
         background: #fff;
         gap: 8px;
         min-width: 120px;
       }
-
-      .lang-wrap label {
-        font-size: 12px;
-        color: var(--muted);
-      }
-
+      .lang-wrap label { font-size: 12px; color: var(--muted); }
       .lang-select {
         border: 0;
         background: transparent;
@@ -173,15 +135,8 @@
         cursor: pointer;
       }
 
-      .hero {
-        padding: 72px 0 24px;
-      }
-
-      .hero-card {
-        text-align: center;
-        padding: 20px 0 10px;
-      }
-
+      .hero { padding: 72px 0 24px; }
+      .hero-card { text-align: center; padding: 20px 0 10px; }
       .badge {
         display: inline-flex;
         align-items: center;
@@ -196,7 +151,6 @@
         font-weight: 800;
         box-shadow: 0 8px 20px rgba(37, 99, 235, 0.06);
       }
-
       h1 {
         margin: 24px auto 16px;
         max-width: 900px;
@@ -204,14 +158,12 @@
         line-height: 1.15;
         letter-spacing: -1.8px;
       }
-
       h1 .gradient {
         background: linear-gradient(90deg, #2563eb, #4f46e5);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
-
       .hero p {
         max-width: 760px;
         margin: 0 auto;
@@ -225,7 +177,6 @@
         max-width: 760px;
         margin: 34px auto 0;
       }
-
       .search-icon {
         position: absolute;
         top: 50%;
@@ -233,7 +184,6 @@
         font-size: 21px;
         pointer-events: none;
       }
-
       .search-box input {
         width: 100%;
         border: 1px solid #dbe2ea;
@@ -246,16 +196,8 @@
         box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
         outline: none;
       }
-
-      body[dir="ltr"] .search-icon {
-        left: 18px;
-        right: auto;
-      }
-
-      body[dir="ltr"] .search-box input {
-        padding: 20px 22px 20px 52px;
-      }
-
+      body[dir="ltr"] .search-icon { left: 18px; right: auto; }
+      body[dir="ltr"] .search-box input { padding: 20px 22px 20px 52px; }
       .search-box input:focus {
         border-color: #7aa8ff;
         box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
@@ -268,12 +210,7 @@
         flex-wrap: wrap;
         gap: 10px;
       }
-
-      .quick-tools {
-        max-width: 980px;
-        margin: 22px auto 0;
-      }
-
+      .quick-tools { max-width: 980px; margin: 22px auto 0; }
       .quick-tool,
       .category-btn {
         border: 1px solid var(--border);
@@ -285,7 +222,6 @@
         font-weight: 700;
         transition: 0.2s ease;
       }
-
       .quick-tool:hover,
       .category-btn:hover,
       .category-btn.active {
@@ -306,33 +242,24 @@
         overflow: hidden;
         box-shadow: var(--shadow);
       }
-
       .stat {
         padding: 24px 12px;
         text-align: center;
         border-left: 1px solid var(--border);
       }
-
-      .stat:last-child {
-        border-left: 0;
-      }
-
+      .stat:last-child { border-left: 0; }
       .stat strong {
         display: block;
         font-size: 30px;
         margin-bottom: 6px;
       }
-
       .stat span {
         color: var(--muted);
         font-size: 12px;
         font-weight: 700;
       }
 
-      section {
-        padding: 50px 0 20px;
-      }
-
+      section { padding: 50px 0 20px; }
       .section-head {
         display: flex;
         align-items: end;
@@ -340,13 +267,11 @@
         gap: 18px;
         margin-bottom: 18px;
       }
-
       .section-head h2 {
         margin: 0;
         font-size: clamp(24px, 3vw, 32px);
         letter-spacing: -0.5px;
       }
-
       .section-head p {
         margin: 6px 0 0;
         color: var(--muted);
@@ -358,7 +283,6 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
       }
-
       .tool-card {
         border: 1px solid var(--border);
         border-radius: 22px;
@@ -369,13 +293,11 @@
         box-shadow: 0 10px 24px rgba(15, 23, 42, 0.02);
         transition: 0.25s ease;
       }
-
       .tool-card:hover {
         transform: translateY(-6px);
         border-color: #dbeafe;
         box-shadow: var(--shadow);
       }
-
       .tool-card::before {
         content: "";
         position: absolute;
@@ -386,11 +308,7 @@
         transform-origin: right;
         transition: 0.25s ease;
       }
-
-      .tool-card:hover::before {
-        transform: scaleX(1);
-      }
-
+      .tool-card:hover::before { transform: scaleX(1); }
       .tool-top {
         display: flex;
         align-items: start;
@@ -398,7 +316,6 @@
         gap: 10px;
         margin-bottom: 18px;
       }
-
       .tool-icon {
         width: 58px;
         height: 58px;
@@ -409,7 +326,6 @@
         border: 1px solid #dbeafe;
         font-size: 28px;
       }
-
       .tool-tag {
         padding: 6px 9px;
         border-radius: 999px;
@@ -419,19 +335,13 @@
         font-weight: 800;
         color: var(--muted);
       }
-
-      .tool-card h3 {
-        margin: 0 0 8px;
-        font-size: 20px;
-      }
-
+      .tool-card h3 { margin: 0 0 8px; font-size: 20px; }
       .tool-card p {
         margin: 0 0 18px;
         color: var(--muted);
         font-size: 14px;
         line-height: 1.8;
       }
-
       .tool-button {
         display: flex;
         align-items: center;
@@ -447,20 +357,13 @@
         font-weight: 800;
         transition: 0.2s ease;
       }
-
       .tool-button:hover {
         background: var(--primary);
         border-color: var(--primary);
         color: white;
       }
-
-      .tool-button span {
-        transition: 0.2s ease;
-      }
-
-      .tool-button:hover span {
-        transform: translateX(-4px);
-      }
+      .tool-button span { transition: 0.2s ease; }
+      .tool-button:hover span { transform: translateX(-4px); }
 
       .no-result {
         display: none;
@@ -478,7 +381,6 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
       }
-
       .feature {
         background: #fff;
         border: 1px solid var(--border);
@@ -486,7 +388,6 @@
         padding: 28px 20px;
         text-align: center;
       }
-
       .feature-icon {
         width: 58px;
         height: 58px;
@@ -497,17 +398,8 @@
         background: var(--primary-soft);
         font-size: 26px;
       }
-
-      .feature h3 {
-        margin: 0 0 8px;
-        font-size: 18px;
-      }
-
-      .feature p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-      }
+      .feature h3 { margin: 0 0 8px; font-size: 18px; }
+      .feature p { margin: 0; color: var(--muted); font-size: 14px; }
 
       .info-card {
         background: #fff;
@@ -516,16 +408,9 @@
         padding: 30px;
         box-shadow: var(--shadow);
       }
-
-      .info-card h3 {
-        margin: 0 0 8px;
-        font-size: 22px;
-      }
-
+      .info-card h3 { margin: 0 0 8px; font-size: 22px; }
       .info-card p,
-      .info-card li {
-        color: var(--muted);
-      }
+      .info-card li { color: var(--muted); }
 
       .faq-grid {
         display: grid;
@@ -533,25 +418,19 @@
         gap: 14px;
         margin-top: 20px;
       }
-
       .faq-item {
         background: #fff;
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 0 18px;
       }
-
       .faq-item summary {
         cursor: pointer;
         list-style: none;
         padding: 17px 0;
         font-weight: 800;
       }
-
-      .faq-item summary::-webkit-details-marker {
-        display: none;
-      }
-
+      .faq-item summary::-webkit-details-marker { display: none; }
       .faq-item p {
         margin: 0 0 16px;
         color: var(--muted);
@@ -564,86 +443,30 @@
         background: #fff;
         border-top: 1px solid var(--border);
       }
-
       .footer-inner {
         display: grid;
         grid-template-columns: 1.6fr 1fr 1fr 1fr;
         gap: 28px;
         padding: 46px 0 26px;
       }
-
-      .footer-brand {
-        font-size: 32px;
-        font-weight: 900;
-        letter-spacing: -0.6px;
-        margin-bottom: 12px;
-      }
-
-      .footer-brand span {
-        color: var(--primary);
-      }
-
+      .footer-brand { font-size: 32px; font-weight: 900; letter-spacing: -0.6px; margin-bottom: 12px; }
+      .footer-brand span { color: var(--primary); }
       .footer-copy,
-      .footer-links a {
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .footer-links {
-        display: grid;
-        gap: 8px;
-      }
-
-      .footer-links a:hover {
-        color: var(--primary);
-      }
-
-      .copyright {
-        padding: 0 0 22px;
-        color: var(--muted);
-        font-size: 13px;
-        text-align: center;
-      }
+      .footer-links a { color: var(--muted); font-size: 14px; }
+      .footer-links { display: grid; gap: 8px; }
+      .footer-links a:hover { color: var(--primary); }
+      .copyright { padding: 0 0 22px; color: var(--muted); font-size: 13px; text-align: center; }
 
       @media (max-width: 900px) {
-        .tools-grid,
-        .feature-grid,
-        .footer-inner {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .stats {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+        .tools-grid, .feature-grid, .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       }
-
       @media (max-width: 720px) {
-        .header {
-          flex-wrap: wrap;
-          justify-content: center;
-          padding: 16px 0;
-        }
-
-        .nav {
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        .tools-grid,
-        .feature-grid,
-        .faq-grid,
-        .footer-inner,
-        .stats {
-          grid-template-columns: 1fr;
-        }
-
-        .section-head {
-          display: block;
-        }
-
-        .hero {
-          padding-top: 52px;
-        }
+        .header { flex-wrap: wrap; justify-content: center; padding: 16px 0; }
+        .nav { flex-wrap: wrap; justify-content: center; }
+        .tools-grid, .feature-grid, .faq-grid, .footer-inner, .stats { grid-template-columns: 1fr; }
+        .section-head { display: block; }
+        .hero { padding-top: 52px; }
       }
     </style>
   </head>
@@ -671,7 +494,7 @@
               <option value="de">Deutsch</option>
               <option value="pt">Português</option>
               <option value="ru">Русский</option>
-              <option value="ja">日本���</option>
+              <option value="ja">日本語</option>
             </select>
           </div>
         </nav>
@@ -716,22 +539,10 @@
           </div>
 
           <div class="stats" aria-label="Statistics">
-            <div class="stat">
-              <strong>10+</strong>
-              <span data-i18n="statTools">أدوات</span>
-            </div>
-            <div class="stat">
-              <strong>24/7</strong>
-              <span data-i18n="statAccess">تجربة مستمرة</span>
-            </div>
-            <div class="stat">
-              <strong>100%</strong>
-              <span data-i18n="statBrowser">في المتصفح</span>
-            </div>
-            <div class="stat">
-              <strong>0%</strong>
-              <span data-i18n="statInstall">تثبيت</span>
-            </div>
+            <div class="stat"><strong>10+</strong><span data-i18n="statTools">أدوات</span></div>
+            <div class="stat"><strong>24/7</strong><span data-i18n="statAccess">تجربة مستمرة</span></div>
+            <div class="stat"><strong>100%</strong><span data-i18n="statBrowser">في المتصفح</span></div>
+            <div class="stat"><strong>0%</strong><span data-i18n="statInstall">تثبيت</span></div>
           </div>
         </div>
       </section>
@@ -814,9 +625,7 @@
             </article>
           </div>
 
-          <div id="noResult" class="no-result" role="status" aria-live="polite" data-i18n="noResult">
-            لا توجد أداة مطابقة لبحثك حاليًا.
-          </div>
+          <div id="noResult" class="no-result" role="status" aria-live="polite" data-i18n="noResult">لا توجد أداة مطابقة لبحثك حاليًا.</div>
         </div>
       </section>
 
@@ -834,13 +643,11 @@
               <h3 data-i18n="featureSpeed">سريع</h3>
               <p data-i18n="featureSpeedText">أدوات مباشرة لا تحتاج إلى تثبيت أو تعقيد.</p>
             </article>
-
             <article class="feature">
               <div class="feature-icon">🔒</div>
               <h3 data-i18n="featurePrivate">خاص</h3>
               <p data-i18n="featurePrivateText">تعمل داخل المتصفح مع تجربة خفيفة وآمنة.</p>
             </article>
-
             <article class="feature">
               <div class="feature-icon">🌍</div>
               <h3 data-i18n="featureMulti">متعدد اللغات</h3>
@@ -876,17 +683,14 @@
               <summary data-i18n="faqOneQ">هل الموقع مجاني؟</summary>
               <p data-i18n="faqOneA">نعم، معظم الأدوات مجانية ومجانية للاستخدام مباشرة عبر المتصفح.</p>
             </details>
-
             <details class="faq-item">
               <summary data-i18n="faqTwoQ">هل تحتاج إلى حساب؟</summary>
               <p data-i18n="faqTwoA">لا، لا يلزم تسجيل الدخول لاستخدام الأدوات الأساسية.</p>
             </details>
-
             <details class="faq-item">
               <summary data-i18n="faqThreeQ">هل يعمل الموقع على الهاتف؟</summary>
               <p data-i18n="faqThreeA">نعم، الموقع مصمم ليعمل بشكل ممتاز على الجوال وأجهزة الكمبيوتر.</p>
             </details>
-
             <details class="faq-item">
               <summary data-i18n="faqFourQ">هل يمكن استخدام الأدوات بدون تثبيت؟</summary>
               <p data-i18n="faqFourA">نعم، جميع الأدوات تعمل مباشرة من المتصفح دون تثبيت أي برنامج.</p>
@@ -1006,9 +810,7 @@
           footerAbout: 'من نحن',
           footerPrivacy: 'الخصوصية',
           footerTerms: 'الشروط',
-          footerContactPage: 'اتصل بنا',
-          title: 'AdaaHub | مركز الأدوات اليومية المجانية',
-          metaDescription: 'AdaaHub مركز الأدوات اليومية المجانية أونلاين. أدوات سريعة مثل تغيير الحجم، ضغط الصور، OCR، PDF، والعدّاد النصي.'
+          footerContactPage: 'اتصل بنا'
         },
         en: {
           navTools: 'Tools',
@@ -1018,20 +820,20 @@
           heroBadge: '⚡ Free and fast tools',
           heroTitle: 'All your daily tools in',
           heroTitleAccent: 'one place',
-          heroText: 'AdaaHub is a hub of free daily tools that help you complete small tasks quickly and easily directly from the browser.',
+          heroText: 'AdaaHub is a hub of free daily tools that help you complete simple tasks quickly and easily directly from the browser.',
           searchPlaceholder: 'Search for a tool...',
           quickResize: 'Resize',
           quickCompress: 'Compress',
           quickCrop: 'Crop',
           quickOcr: 'OCR',
           quickPdf: 'PDF',
-          quickWord: 'Word Counter',
+          quickWord: 'Word counter',
           statTools: 'Tools',
           statAccess: 'Always available',
           statBrowser: 'In browser',
           statInstall: 'No install',
           toolsTitle: 'Featured tools',
-          toolsSub: 'Useful and practical tools for everyday work.',
+          toolsSub: 'Practical tools for everyday use.',
           allTools: 'All',
           catImage: 'Images',
           catText: 'Text',
@@ -1040,277 +842,76 @@
           tagPdf: 'PDF',
           tagText: 'Text',
           toolResize: 'Resize',
-          toolResizeDesc: 'Change image dimensions quickly and accurately.',
+          toolResizeDesc: 'Quickly change image dimensions with excellent accuracy.',
           toolCompress: 'Compress images',
           toolCompressDesc: 'Reduce image size while preserving quality.',
-          toolCrop: 'Crop image',
-          toolCropDesc: 'Cut a specific area from the image easily.',
+          toolCrop: 'Crop images',
+          toolCropDesc: 'Cut a specific part of an image with ease.',
           toolOcr: 'Image to text',
-          toolOcrDesc: 'Extract text from images in Arabic or English easily.',
+          toolOcrDesc: 'Extract text from images in Arabic or English.',
           toolPdf: 'PDF tools',
-          toolPdfDesc: 'Convert and organize files quickly in the browser.',
+          toolPdfDesc: 'Convert and organize files directly in the browser.',
           toolWord: 'Word and character counter',
-          toolWordDesc: 'Count words, letters, sentences, and lines in any text.',
+          toolWordDesc: 'Count words, characters, sentences, and lines in any text.',
           useTool: 'Use tool',
-          noResult: 'No matching tools were found right now.',
+          noResult: 'No matching tool found at the moment.',
           aboutTitle: 'Why AdaaHub?',
           featureSpeed: 'Fast',
-          featureSpeedText: 'Direct tools with no installation or complexity.',
+          featureSpeedText: 'Direct tools that require no installation or complexity.',
           featurePrivate: 'Private',
-          featurePrivateText: 'Runs in the browser with a smooth and secure experience.',
-          featureMulti: 'Multi-language',
-          featureMultiText: 'An interface that switches between languages for a global audience.',
+          featurePrivateText: 'Works inside the browser with a light and secure experience.',
+          featureMulti: 'Multilingual',
+          featureMultiText: 'An easy-to-switch interface for users worldwide.',
           infoTitle: 'About the site',
-          infoText: 'AdaaHub was designed to simplify everyday tasks with free, fast tools and a smooth user experience for work, study, and daily life.',
-          infoOne: 'No account required, and no extra software needed.',
-          infoTwo: 'Works on mobile and desktop.',
-          infoThree: 'Simple interface suitable for all levels.',
+          infoText: 'AdaaHub is designed to simplify daily tasks through free, fast tools with a direct and comfortable interface for work, study, and everyday life.',
+          infoOne: 'No account required and no extra software to install.',
+          infoTwo: 'Works on mobile or desktop.',
+          infoThree: 'Simple interface suitable for all skill levels.',
           faqTitle: 'Frequently asked questions',
           faqOneQ: 'Is the site free?',
-          faqOneA: 'Yes, most tools are completely free to use directly in the browser.',
+          faqOneA: 'Yes, most tools are free and ready to use directly in the browser.',
           faqTwoQ: 'Do I need an account?',
-          faqTwoA: 'No, you do not need to sign in for the basic tools.',
+          faqTwoA: 'No, you do not need to sign in to use the core tools.',
           faqThreeQ: 'Does it work on mobile?',
-          faqThreeA: 'Yes, the site is designed to work perfectly on mobile and desktop devices.',
-          faqFourQ: 'Can I use the tools without installation?',
-          faqFourA: 'Yes, all tools work directly in the browser without installing any program.',
-          footerText: 'Free, quick, and convenient daily tools for everyone.',
+          faqThreeA: 'Yes, the site is designed to work well on both mobile and desktop.',
+          faqFourQ: 'Can I use tools without installation?',
+          faqFourA: 'Yes, all tools work directly in the browser without installing any software.',
+          footerText: 'Free, fast, and convenient daily tools for everyone.',
           footerMenu: 'Menu',
           footerInfo: 'Info',
           footerContact: 'Contact',
           footerAbout: 'About us',
           footerPrivacy: 'Privacy',
           footerTerms: 'Terms',
-          footerContactPage: 'Contact us',
-          title: 'AdaaHub | Free Daily Tools',
-          metaDescription: 'AdaaHub offers free daily online tools including resizing, compression, OCR, PDF tools, and text counting.'
-        },
-        fr: {
-          navTools: 'Outils',
-          navAbout: 'À propos',
-          navFaq: 'FAQ',
-          langLabel: 'Langue',
-          heroBadge: '⚡ Outils gratuites et rapides',
-          heroTitle: 'Tous vos outils quotidiens dans',
-          heroTitleAccent: 'un seul endroit',
-          heroText: 'AdaaHub est un centre d’outils gratuits qui vous aide à réaliser des tâches simples rapidement et facilement depuis le navigateur.',
-          searchPlaceholder: 'Rechercher un outil...',
-          quickResize: 'Redimensionner',
-          quickCompress: 'Compresser',
-          quickCrop: 'Recadrer',
-          quickOcr: 'OCR',
-          quickPdf: 'PDF',
-          quickWord: 'Compteur',
-          title: 'AdaaHub | Outils quotidiennes gratuites',
-          metaDescription: 'AdaaHub propose des outils quotidiens gratuits, y compris le redimensionnement, la compression, l’OCR et les PDF.'
-        },
-        es: {
-          navTools: 'Herramientas',
-          navAbout: 'Acerca de',
-          navFaq: 'FAQ',
-          langLabel: 'Idioma',
-          heroBadge: '⚡ Herramientas gratis y rápidas',
-          heroTitle: 'Todas tus herramientas diarias en',
-          heroTitleAccent: 'un solo lugar',
-          heroText: 'AdaaHub es un centro de herramientas diarias gratuitas para completar tareas simples rápidamente desde el navegador.',
-          searchPlaceholder: 'Buscar herramienta...',
-          quickResize: 'Cambiar tamaño',
-          quickCompress: 'Comprimir',
-          quickCrop: 'Recortar',
-          quickOcr: 'OCR',
-          quickPdf: 'PDF',
-          quickWord: 'Contador',
-          title: 'AdaaHub | Herramientas diarias gratis',
-          metaDescription: 'AdaaHub ofrece herramientas diarias gratuitas como cambio de tamaño, compresión, OCR y PDF.'
-        },
-        tr: {
-          navTools: 'Araçlar',
-          navAbout: 'Hakkında',
-          navFaq: 'SSS',
-          langLabel: 'Dil',
-          heroBadge: '⚡ Ücretsiz ve hızlı araçlar',
-          heroTitle: 'Günlük araçlarınız tümü',
-          heroTitleAccent: 'tek bir yerde',
-          heroText: 'AdaaHub, küçük görevleri hızlı ve kolay bir şekilde tarayıcıdan yapmanızı sağlayan ücretsiz araçlar merkezidir.',
-          searchPlaceholder: 'Araç ara...',
-          quickResize: 'Boyutlandır',
-          quickCompress: 'Sıkıştır',
-          quickCrop: 'Kırp',
-          quickOcr: 'OCR',
-          quickPdf: 'PDF',
-          quickWord: 'Sayıcı',
-          title: 'AdaaHub | Ücretsiz Günlük Araçlar',
-          metaDescription: 'AdaaHub, boyutlandırma, sıkıştırma, OCR ve PDF gibi ücretsiz günlük araçlar sunar.'
-        },
-        de: {
-          navTools: 'Werkzeuge',
-          navAbout: 'Über uns',
-          navFaq: 'FAQ',
-          langLabel: 'Sprache',
-          heroBadge: '⚡ Kostenlose und schnelle Tools',
-          heroTitle: 'Alle Ihre täglichen Tools an',
-          heroTitleAccent: 'einem Ort',
-          heroText: 'AdaaHub ist ein Zentrum für kostenlose tägliche Tools, die Ihnen helfen, einfache Aufgaben schnell und einfach direkt im Browser zu erledigen.',
-          searchPlaceholder: 'Tool suchen...',
-          quickResize: 'Größe ändern',
-          quickCompress: 'Komprimieren',
-          quickCrop: 'Zuschneiden',
-          quickOcr: 'OCR',
-          quickPdf: 'PDF',
-          quickWord: 'Zähler',
-          title: 'AdaaHub | Kostenlose tägliche Tools',
-          metaDescription: 'AdaaHub bietet kostenlose tägliche Online-Tools wie Größenänderung, Komprimierung, OCR und PDF.'
-        },
-        pt: {
-          navTools: 'Ferramentas',
-          navAbout: 'Sobre',
-          navFaq: 'Perguntas',
-          langLabel: 'Idioma',
-          heroBadge: '⚡ Ferramentas grátis e rápidas',
-          heroTitle: 'Todas as suas ferramentas diárias em',
-          heroTitleAccent: 'um só lugar',
-          heroText: 'AdaaHub é um centro de ferramentas diárias gratuitas que ajudam você a concluir tarefas simples rapidamente no navegador.',
-          searchPlaceholder: 'Buscar ferramenta...',
-          quickResize: 'Redimensionar',
-          quickCompress: 'Comprimir',
-          quickCrop: 'Cortar',
-          quickOcr: 'OCR',
-          quickPdf: 'PDF',
-          quickWord: 'Contador',
-          title: 'AdaaHub | Ferramentas diárias grátis',
-          metaDescription: 'AdaaHub oferece ferramentas diárias gratuitas como redimensionamento, compressão, OCR e PDF.'
-        },
-        ru: {
-          navTools: 'Инструменты',
-          navAbout: 'О нас',
-          navFaq: 'FAQ',
-          langLabel: 'Язык',
-          heroBadge: '⚡ Бесплатные и быстрые инструменты',
-          heroTitle: 'Все ваши ежедневные инструменты в',
-          heroTitleAccent: 'одном месте',
-          heroText: 'AdaaHub — это центр бесплатных ежедневных инструментов, которые помогают быстро выполнять простые задачи прямо в браузере.',
-          searchPlaceholder: 'Поиск инструмента...',
-          quickResize: 'Изменить размер',
-          quickCompress: 'Сжать',
-          quickCrop: 'Обрезать',
-          quickOcr: 'OCR',
-          quickPdf: 'PDF',
-          quickWord: 'Счётчик',
-          title: 'AdaaHub | Бесплатные ежедневные инструменты',
-          metaDescription: 'AdaaHub предлагает бесплатные ежедневные онлайн-инструменты: изменение размера, сжатие, OCR и PDF.'
-        },
-        ja: {
-          navTools: 'ツール',
-          navAbout: '概要',
-          navFaq: 'FAQ',
-          langLabel: '言語',
-          heroBadge: '⚡ 無料で高速なツール',
-          heroTitle: '日常のツールを',
-          heroTitleAccent: '1か所に',
-          heroText: 'AdaaHub は、簡単な作業をブラウザからすばやく解決できる無料の日常ツール集です。',
-          searchPlaceholder: 'ツールを検索...',
-          quickResize: 'サイズ変更',
-          quickCompress: '圧縮',
-          quickCrop: 'トリミング',
-          quickOcr: 'OCR',
-          quickPdf: 'PDF',
-          quickWord: 'カウンター',
-          title: 'AdaaHub | 無料の日常ツール',
-          metaDescription: 'AdaaHub は、サイズ変更、圧縮、OCR、PDF などの無料ツールを提供します。'
+          footerContactPage: 'Contact us'
         }
       };
 
-      const searchInput = document.getElementById('searchInput');
-      const toolCards = document.querySelectorAll('.tool-card');
-      const categoryButtons = document.querySelectorAll('.category-btn');
-      const noResult = document.getElementById('noResult');
-      const languageSelect = document.getElementById('languageSelect');
+      const langSelect = document.getElementById('languageSelect');
+      const savedLang = localStorage.getItem('adaahub-lang') || 'ar';
+      langSelect.value = savedLang;
 
-      let currentCategory = 'all';
-
-      function setTextContent(key, value) {
-        if (!value) return;
-        document.querySelectorAll('[data-i18n]').forEach((el) => {
-          if (el.dataset.i18n === key) {
-            el.textContent = value;
-          }
-        });
-      }
-
-      function applyTranslations(lang) {
+      function applyLanguage(lang) {
         const dict = translations[lang] || translations.ar;
-        const nodes = document.querySelectorAll('[data-i18n]');
-        nodes.forEach((el) => {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.body.dir = document.documentElement.dir;
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
           const key = el.dataset.i18n;
           if (dict[key]) el.textContent = dict[key];
         });
 
-        const placeholderKey = 'searchPlaceholder';
-        if (searchInput) {
-          searchInput.placeholder = dict[placeholderKey] || 'Search...';
-          searchInput.setAttribute('aria-label', dict[placeholderKey] || 'Search');
-        }
-
-        document.documentElement.lang = lang;
-        document.documentElement.dir = ['ar', 'fa'].includes(lang) ? 'rtl' : 'ltr';
-        document.body.dir = document.documentElement.dir;
-
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-          metaDescription.setAttribute('content', dict.metaDescription || 'AdaaHub');
-        }
-
-        document.title = dict.title || 'AdaaHub';
-      }
-
-      function filterTools() {
-        const search = (searchInput.value || '').toLowerCase().trim();
-        let visibleCount = 0;
-
-        toolCards.forEach((card) => {
-          const name = (card.dataset.name || '').toLowerCase();
-          const category = card.dataset.category || 'all';
-          const matchesSearch = !search || name.includes(search);
-          const matchesCategory = currentCategory === 'all' || category === currentCategory;
-          const visible = matchesSearch && matchesCategory;
-
-          card.style.display = visible ? '' : 'none';
-          if (visible) visibleCount++;
+        document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+          const key = el.dataset.i18nPlaceholder;
+          if (dict[key]) el.placeholder = dict[key];
         });
 
-        noResult.style.display = visibleCount === 0 ? 'block' : 'none';
-      }
-
-      if (searchInput) {
-        searchInput.addEventListener('input', filterTools);
-      }
-
-      categoryButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          categoryButtons.forEach((btn) => btn.classList.remove('active'));
-          button.classList.add('active');
-          currentCategory = button.dataset.category || 'all';
-          filterTools();
-        });
-      });
-
-      const savedLang = localStorage.getItem('adaahub-lang') || 'ar';
-      languageSelect.value = savedLang;
-      applyTranslations(savedLang);
-
-      languageSelect.addEventListener('change', (event) => {
-        const lang = event.target.value;
         localStorage.setItem('adaahub-lang', lang);
-        applyTranslations(lang);
-      });
-
-      const themeButton = document.getElementById('themeButton');
-      if (themeButton) {
-        themeButton.addEventListener('click', () => {
-          document.body.classList.toggle('dark');
-          localStorage.setItem('adaahub-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-        });
       }
+
+      langSelect.addEventListener('change', (event) => applyLanguage(event.target.value));
+      applyLanguage(savedLang);
     </script>
   </body>
 </html>
