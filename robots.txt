@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://adaahub.github.io/sitemap.xml
