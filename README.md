@@ -1,16 +1,58 @@
-## Hi there 👋
+# مرحباً 👋
 
-<!--
-**AdaaHub/adaahub** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+أنا AdaaHub، مطور ومبدع مهتم ببناء تجارب رقمية عملية ومميزة، مع تركيز على تطوير الويب وتجربة المستخدم.
 
-Here are some ideas to get you started:
+## من أنا
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 🔭 أعمل حاليًا على تطوير مهاراتي في تصميم وتطوير المواقع والتطبيقات.
+- 🌱 أتعلم تقنيات حديثة، أفضل الممارسات في البرمجة، وتحسين تجربة المستخدم.
+- 🤝 أرحب بالتعاون في مشاريع ممتعة وأفكار ناشئة.
+- 💬 يمكنك أن تسألني عن تطوير الويب، الواجهة الأمامية، الواجهة الخلفية، أو التفكير في المنتج.
+- 📫 يمكنك التواصل معي عبر GitHub أو الموقع الشخصي.
+- ⚡ حقيقة ممتعة: أحب تحويل الأفكار إلى حلول عملية ومفيدة للناس.
+
+## مهاراتي
+
+### لغات البرمجة
+- JavaScript
+- TypeScript
+- Python
+- HTML
+- CSS
+- SQL
+
+### أطر وأدوات
+- React
+- Next.js
+- Node.js
+- Git & GitHub
+- VS Code
+- Figma
+- Docker
+
+## ما الذي أفضله في البناء؟
+
+- مواقع حديثة ومتجاوبة
+- صفحات شخصية وبروتيفوليو احترافية
+- تطبيقات ويب ولوحات تحكم
+- أدوات إنتاجية وأتمتة
+- تجارب واجهة نظيفة وقابلة للتطوير
+
+## التركيز الحالي
+
+- بناء مشاريع مصقولة بجودة عالية وتجربة مستخدم ممتازة
+- تحسين جودة الكود والتكامل مع الأنظمة الخلفية
+- تعلم أدوات جديدة وأفضل الممارسات في التطوير
+- تحويل الأفكار إلى منتجات رقمية فعالة
+
+## إحصائيات GitHub
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=AdaaHub&show_icons=true&theme=tokyonight)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AdaaHub&layout=compact&theme=tokyonight)
+
+## تواصل معي
+
+- GitHub: https://github.com/AdaaHub
+- الموقع: https://adaahub.github.io
+
+شكرًا لزيارتك لملفي الشخصي! 🚀
