@@ -1,409 +1,186 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>من نحن | AdaaHub - مركز الأدوات اليومية</title>
-
-<meta name="description"
-content="تعرف على AdaaHub، منصة عربية توفر أدوات يومية مجانية وسهلة الاستخدام للصور والنصوص والملفات مباشرة من المتصفح.">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical"
-href="https://adaahub.github.io/pages/about.html">
-
-<style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-body{
-font-family:Arial,Tahoma,sans-serif;
-background:#f5f7fb;
-color:#20242a;
-line-height:1.9;
-}
-
-header{
-background:#fff;
-border-bottom:1px solid #e5e7eb;
-padding:17px 20px;
-}
-
-.header{
-max-width:1000px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.logo{
-font-size:27px;
-font-weight:bold;
-color:#111827;
-text-decoration:none;
-}
-
-.logo span{
-color:#2563eb;
-}
-
-.nav{
-display:flex;
-align-items:center;
-gap:18px;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:#374151;
-text-decoration:none;
-font-size:15px;
-}
-
-.nav a:hover{
-color:#2563eb;
-}
-
-.container{
-max-width:850px;
-margin:45px auto;
-padding:20px;
-}
-
-.card{
-background:#fff;
-border:1px solid #e5e7eb;
-border-radius:18px;
-padding:35px;
-box-shadow:0 8px 25px rgba(0,0,0,.04);
-}
-
-h1{
-font-size:32px;
-margin-bottom:20px;
-color:#111827;
-}
-
-h2{
-font-size:22px;
-margin-top:30px;
-margin-bottom:10px;
-color:#1f2937;
-}
-
-p{
-color:#555;
-margin-bottom:16px;
-}
-
-ul{
-padding-right:25px;
-color:#555;
-margin-bottom:10px;
-}
-
-li{
-margin-bottom:9px;
-}
-
-.links{
-margin-top:30px;
-padding-top:25px;
-border-top:1px solid #e5e7eb;
-}
-
-.links a{
-display:inline-block;
-margin-left:10px;
-margin-bottom:10px;
-padding:9px 14px;
-border-radius:8px;
-background:#f1f5f9;
-color:#2563eb;
-text-decoration:none;
-font-size:14px;
-}
-
-.links a:hover{
-background:#e2e8f0;
-}
-
-footer{
-margin-top:60px;
-background:#111827;
-color:#cbd5e1;
-padding:30px 20px;
-text-align:center;
-}
-
-footer p{
-color:#cbd5e1;
-margin-bottom:12px;
-}
-
-.footer-links{
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;
-}
-
-.footer-links a{
-color:#cbd5e1;
-text-decoration:none;
-font-size:14px;
-}
-
-.footer-links a:hover{
-color:#fff;
-}
-
-@media(max-width:600px){
-
-.header{
-flex-direction:column;
-}
-
-.nav{
-justify-content:center;
-}
-
-.container{
-margin-top:25px;
-padding:15px;
-}
-
-.card{
-padding:25px 18px;
-}
-
-h1{
-font-size:27px;
-}
-
-h2{
-font-size:20px;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>من نحن | AdaaHub - مركز الأدوات اليومية</title>
+  <meta name="description" content="تعرف على AdaaHub، منصة عربية توفر أدوات يومية مجانية وسهلة الاستخدام للصور والنصوص والملفات مباشرة من المتصفح.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adaahub.github.io/pages/about.html">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Tahoma,sans-serif;background:#f5f7fb;color:#20242a;line-height:1.9}
+    a{color:inherit;text-decoration:none}
+    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:17px 20px}
+    .header{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .logo{font-size:27px;font-weight:bold;color:#111827;text-decoration:none}
+    .logo span{color:#2563eb}
+    .nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .nav a{color:#374151;font-size:15px;transition:color .2s ease}
+    .nav a:hover{color:#2563eb}
+    .lang-wrap{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;color:#374151;font-size:13px}
+    .lang-wrap label{font-weight:700;color:#475569}
+    .lang-select{border:0;background:transparent;color:#111827;font:inherit;font-weight:700;outline:none;cursor:pointer}
+    .container{max-width:850px;margin:45px auto;padding:20px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:35px;box-shadow:0 8px 25px rgba(0,0,0,.04)}
+    h1{font-size:32px;margin-bottom:20px;color:#111827}
+    h2{font-size:22px;margin-top:30px;margin-bottom:10px;color:#1f2937}
+    p{color:#555;margin-bottom:16px}
+    ul{padding-right:25px;color:#555;margin-bottom:10px}
+    li{margin-bottom:9px}
+    .links{margin-top:30px;padding-top:25px;border-top:1px solid #e5e7eb}
+    .links a{display:inline-block;margin-left:10px;margin-bottom:10px;padding:9px 14px;border-radius:8px;background:#f1f5f9;color:#2563eb;text-decoration:none;font-size:14px}
+    .links a:hover{background:#e2e8f0}
+    footer{margin-top:60px;background:#111827;color:#cbd5e1;padding:30px 20px;text-align:center}
+    footer p{color:#cbd5e1;margin-bottom:12px}
+    .footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+    .footer-links a{color:#cbd5e1;text-decoration:none;font-size:14px}
+    .footer-links a:hover{color:#fff}
+    @media(max-width:600px){.header{flex-direction:column}.nav{justify-content:center}.container{margin-top:25px;padding:15px}.card{padding:25px 18px}.h1,.card h1{font-size:27px}h2{font-size:20px}}
+  </style>
 </head>
-
 <body>
-
-<header>
-
-<div class="header">
-
-<a class="logo" href="../index.html">
-Adaa<span>Hub</span>
-</a>
-
-<nav class="nav">
-
-<a href="../index.html">
-الرئيسية
-</a>
-
-<a href="../index.html#tools">
-الأدوات
-</a>
-
-<a href="privacy.html">
-الخصوصية
-</a>
-
-<a href="contact.html">
-اتصل بنا
-</a>
-
-</nav>
-
-</div>
-
-</header>
-
-
-<main class="container">
-
-<article class="card">
-
-<h1>من نحن</h1>
-
-<p>
-مرحبًا بك في <strong>AdaaHub</strong>، مركز الأدوات اليومية
-المجانية الذي يهدف إلى توفير أدوات عملية وسهلة الاستخدام
-يمكن الوصول إليها مباشرة من المتصفح.
-</p>
-
-<p>
-فكرة AdaaHub بسيطة: بدلًا من البحث عن برنامج مختلف لكل
-مهمة صغيرة، نحاول جمع مجموعة من الأدوات المفيدة في مكان
-واحد، مع التركيز على سهولة الاستخدام والوضوح وسرعة الوصول.
-</p>
-
-
-<h2>ماذا يقدم AdaaHub؟</h2>
-
-<p>
-يضم الموقع مجموعة من الأدوات التي تساعد في التعامل مع
-الصور والنصوص وبعض المهام اليومية، ونعمل على تطوير الموقع
-وإضافة أدوات جديدة مع الوقت.
-</p>
-
-<ul>
-
-<li>
-أدوات ضغط الصور وتقليل حجم الملفات.
-</li>
-
-<li>
-أدوات تحويل الصور بين الصيغ المختلفة.
-</li>
-
-<li>
-أدوات تغيير حجم الصور وقصها وتدويرها.
-</li>
-
-<li>
-أدوات لمعرفة معلومات وخصائص الصور.
-</li>
-
-<li>
-أدوات نصية مثل عداد الكلمات والحروف.
-</li>
-
-</ul>
-
-
-<h2>سهولة الاستخدام</h2>
-
-<p>
-نحاول تصميم أدوات AdaaHub بطريقة مباشرة بحيث يستطيع المستخدم
-الوصول إلى الوظيفة التي يحتاج إليها دون خطوات معقدة أو برامج
-إضافية عندما تكون المعالجة داخل المتصفح ممكنة.
-</p>
-
-<p>
-كما نهتم بأن تكون صفحات الموقع قابلة للاستخدام على الهواتف
-والأجهزة اللوحية وأجهزة الكمبيوتر.
-</p>
-
-
-<h2>كيف نتعامل مع الملفات؟</h2>
-
-<p>
-بعض أدوات AdaaHub تعمل على معالجة الملفات مباشرة داخل متصفح
-المستخدم. في هذه الحالات لا تكون هناك حاجة إلى رفع الملف
-إلى خادم الموقع لتنفيذ العملية.
-</p>
-
-<p>
-طريقة معالجة الملفات قد تختلف من أداة إلى أخرى، لذلك نحرص
-على توضيح طريقة عمل الأداة للمستخدم قبل استخدامها.
-</p>
-
-
-<h2>هدف AdaaHub</h2>
-
-<p>
-هدفنا هو بناء منصة عربية عملية تحتوي على أدوات مفيدة للحياة
-اليومية والعمل والدراسة والاستخدام الشخصي، مع الحفاظ على
-واجهة بسيطة ومحتوى واضح وتجربة استخدام جيدة.
-</p>
-
-<p>
-نحن نعمل على تحسين الأدوات الحالية وإضافة أدوات جديدة بناءً
-على احتياجات المستخدمين واقتراحاتهم.
-</p>
-
-
-<h2>اقتراحاتك تهمنا</h2>
-
-<p>
-إذا كانت هناك أداة معينة تحتاج إليها ولم تجدها في الموقع،
-يمكنك إرسال اقتراحك إلينا من خلال
-<a href="contact.html">صفحة اتصل بنا</a>.
-كما يمكنك الاطلاع على
-<a href="../index.html#tools">جميع الأدوات المتاحة</a>
-من الصفحة الرئيسية.
-</p>
-
-
-<div class="links">
-
-<a href="../index.html">
-العودة إلى الرئيسية
-</a>
-
-<a href="../index.html#tools">
-استعراض الأدوات
-</a>
-
-<a href="privacy.html">
-سياسة الخصوصية
-</a>
-
-<a href="terms.html">
-الشروط والأحكام
-</a>
-
-<a href="contact.html">
-اتصل بنا
-</a>
-
-</div>
-
-</article>
-
-</main>
-
-
-<footer>
-
-<p>
-© 2026 AdaaHub - جميع الحقوق محفوظة
-</p>
-
-<div class="footer-links">
-
-<a href="../index.html">
-الرئيسية
-</a>
-
-<a href="about.html">
-من نحن
-</a>
-
-<a href="privacy.html">
-الخصوصية
-</a>
-
-<a href="terms.html">
-الشروط والأحكام
-</a>
-
-<a href="contact.html">
-اتصل بنا
-</a>
-
-</div>
-
-</footer>
-
+  <header>
+    <div class="header">
+      <a class="logo" href="../index.html">Adaa<span>Hub</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="../index.html" data-i18n="navHome">الرئيسية</a>
+        <a href="../index.html#tools" data-i18n="navTools">الأدوات</a>
+        <a href="about.html" data-i18n="navAbout">من نحن</a>
+        <a href="privacy.html" data-i18n="navPrivacy">الخصوصية</a>
+        <a href="contact.html" data-i18n="navContact">اتصل بنا</a>
+        <div class="lang-wrap" aria-label="Language selector">
+          <label for="langSelect" data-i18n="langLabel">اللغة</label>
+          <select id="langSelect" class="lang-select">
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="tr">Türkçe</option>
+            <option value="de">Deutsch</option>
+            <option value="pt">Português</option>
+            <option value="ru">Русский</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1 data-i18n="pageTitle">من نحن</h1>
+      <p data-i18n="intro">مرحبًا بك في <strong>AdaaHub</strong>، مركز الأدوات اليومية المجانية الذي يهدف إلى توفير أدوات عملية وسهلة الاستخدام يمكن الوصول إليها مباشرة من المتصفح.</p>
+      <p data-i18n="intro2">فكرة AdaaHub بسيطة: بدلًا من البحث عن برنامج مختلف لكل مهمة صغيرة، نحاول جمع مجموعة من الأدوات المفيدة في مكان واحد، مع التركيز على سهولة الاستخدام والوضوح وسرعة الوصول.</p>
+
+      <h2 data-i18n="offerTitle">ماذا يقدم AdaaHub؟</h2>
+      <p data-i18n="offerText">يضم الموقع مجموعة من الأدوات التي تساعد في التعامل مع الصور والنصوص وبعض المهام اليومية، ونعمل على تطوير الموقع وإضافة أدوات جديدة مع الوقت.</p>
+      <ul>
+        <li data-i18n="item1">أدوات ضغط الصور وتقليل حجم الملفات.</li>
+        <li data-i18n="item2">أدوات تحو��ل الصور بين الصيغ المختلفة.</li>
+        <li data-i18n="item3">أدوات تغيير حجم الصور وقصها وتدويرها.</li>
+        <li data-i18n="item4">أدوات لمعرفة معلومات وخصائص الصور.</li>
+        <li data-i18n="item5">أدوات نصية مثل عداد الكلمات والحروف.</li>
+      </ul>
+
+      <h2 data-i18n="easeTitle">سهولة الاستخدام</h2>
+      <p data-i18n="easeText1">نحاول تصميم أدوات AdaaHub بطريقة مباشرة بحيث يستطيع المستخدم الوصول إلى الوظيفة التي يحتاج إليها دون خطوات معقدة أو برامج إضافية عندما تكون المعالجة داخل المتصفح ممكنة.</p>
+      <p data-i18n="easeText2">كما نهتم بأن تكون صفحات الموقع قابلة للاستخدام على الهواتف والأجهزة اللوحية وأجهزة الكمبيوتر.</p>
+
+      <h2 data-i18n="filesTitle">كيف نتعامل مع الملفات؟</h2>
+      <p data-i18n="filesText1">بعض أدوات AdaaHub تعمل على معالجة الملفات مباشرة داخل متصفح المستخدم. في هذه الحالات لا تكون هناك حاجة إلى رفع الملف إلى خادم الموقع لتنفيذ العملية.</p>
+      <p data-i18n="filesText2">طريقة معالجة الملفات قد تختلف من أداة إلى أخرى، لذلك نحرص على توضيح طريقة عمل الأداة للمستخدم قبل استخدامها.</p>
+
+      <h2 data-i18n="goalTitle">هدف AdaaHub</h2>
+      <p data-i18n="goalText1">هدفنا هو بناء منصة عربية عملية تحتوي على أدوات مفيدة للحياة اليومية والعمل والدراسة والاستخدام الشخصي، مع الحفاظ على واجهة بسيطة ومحتوى واضح وتجربة استخدام جيدة.</p>
+      <p data-i18n="goalText2">نحن نعمل على تحسين الأدوات الحالية وإضافة أدوات جديدة بناءً على احتياجات المستخدمين واقتراحاتهم.</p>
+
+      <h2 data-i18n="suggestionsTitle">اقتراحاتك تهمنا</h2>
+      <p data-i18n="suggestionsText">إذا كانت هناك أداة معينة تحتاج إليها ولم تجدها في الموقع، يمكنك إرسال اقتراحك إلينا من خلال <a href="contact.html">صفحة اتصل بنا</a>. كما يمكنك الاطلاع على <a href="../index.html#tools">جميع الأدوات المتاحة</a> من الصفحة الرئيسية.</p>
+
+      <div class="links">
+        <a href="../index.html" data-i18n="linkHome">العودة إلى الرئيسية</a>
+        <a href="../index.html#tools" data-i18n="linkTools">استعراض الأدوات</a>
+        <a href="privacy.html" data-i18n="linkPrivacy">سياسة الخصوصية</a>
+        <a href="terms.html" data-i18n="linkTerms">الشروط والأحكام</a>
+        <a href="contact.html" data-i18n="linkContact">اتصل بنا</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 AdaaHub - جميع الحقوق محفوظة</p>
+    <div class="footer-links">
+      <a href="../index.html" data-i18n="footerHome">الرئيسية</a>
+      <a href="about.html" data-i18n="footerAbout">من نحن</a>
+      <a href="privacy.html" data-i18n="footerPrivacy">الخصوصية</a>
+      <a href="terms.html" data-i18n="footerTerms">الشروط والأحكام</a>
+      <a href="contact.html" data-i18n="footerContact">اتصل بنا</a>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      ar: {
+        navHome:'الرئيسية', navTools:'الأدوات', navAbout:'من نحن', navPrivacy:'الخصوصية', navContact:'اتصل بنا', langLabel:'اللغة',
+        pageTitle:'من نحن', intro:'مرحبًا بك في <strong>AdaaHub</strong>، مركز الأدوات اليومية المجانية الذي يهدف إلى توفير أدوات عملية وسهلة الاستخدام يمكن الوصول إليها مباشرة من المتصفح.',
+        intro2:'فكرة AdaaHub بسيطة: بدلًا من البحث عن برنامج مختلف لكل مهمة صغيرة، نحاول جمع مجموعة من الأدوات المفيدة في مكان واحد، مع التركيز على سهولة الاستخدام والوضوح وسرعة الوصول.',
+        offerTitle:'ماذا يقدم AdaaHub؟', offerText:'يضم الموقع مجموعة من الأدوات التي تساعد في التعامل مع الصور والنصوص وبعض المهام اليومية، ونعمل على تطوير الموقع وإضافة أدوات جديدة مع الوقت.',
+        item1:'أدوات ضغط الصور وتقليل حجم الملفات.', item2:'أدوات تحويل الصور بين الصيغ المختلفة.', item3:'أدوات تغيير حجم الصور وقصها وتدويرها.', item4:'أدوات لمعرفة معلومات وخصائص الصور.', item5:'أدوات نصية مثل عداد الكلمات والحروف.',
+        easeTitle:'سهولة الاستخدام', easeText1:'نحاول تصميم أدوات AdaaHub بطريقة مباشرة بحيث يستطيع المستخدم الوصول إلى الوظيفة التي يحتاج إليها دون خطوات معقدة أو برامج إضافية عندما تكون المعالجة داخل المتصفح ممكنة.', easeText2:'كما نهتم بأن تكون صفحات الموقع قابلة للاستخدام على الهواتف والأجهزة اللوحية وأجهزة الكمبيوتر.',
+        filesTitle:'كيف نتعامل مع الملفات؟', filesText1:'بعض أدوات AdaaHub تعمل على معالجة الملفات مباشرة داخل متصفح المستخدم. في هذه الحالات لا تكون هناك حاجة إلى رفع الملف إلى خادم الموقع لتنفيذ العملية.', filesText2:'طريقة معالجة الملفات قد تختلف من أداة إلى أخرى، لذلك نحرص على توضيح طريقة عمل الأداة للمستخدم قبل استخدامها.',
+        goalTitle:'هدف AdaaHub', goalText1:'هدفنا هو بناء منصة عربية عملية تحتوي على أدوات مفيدة للحياة اليومية والعمل والدراسة والاستخدام الشخصي، مع الحفاظ على واجهة بسيطة ومحتوى واضح وتجربة استخدام جيدة.', goalText2:'نحن نعمل على تحسين الأدوات الحالية وإضافة أدوات جديدة بناءً على احتياجات المستخدمين واقتراحاتهم.',
+        suggestionsTitle:'اقتراحاتك تهمنا', suggestionsText:'إذا كانت هناك أداة معينة تحتاج إليها ولم تجدها في الموقع، يمكنك إرسال اقتراحك إلينا من خلال <a href="contact.html">صفحة اتصل بنا</a>. كما يمكنك الاطلاع على <a href="../index.html#tools">جميع الأدوات المتاحة</a> من الصفحة الرئيسية.',
+        linkHome:'العودة إلى الرئيسية', linkTools:'استعراض الأدوات', linkPrivacy:'سياسة الخصوصية', linkTerms:'الشروط والأحكام', linkContact:'اتصل بنا',
+        footerHome:'الرئيسية', footerAbout:'من نحن', footerPrivacy:'الخصوصية', footerTerms:'الشروط والأحكام', footerContact:'اتصل بنا',
+        title:'من نحن | AdaaHub - مركز الأدوات اليومية', description:'تعرف على AdaaHub، منصة عربية توفر أدوات يومية مجانية وسهلة الاستخدام للصور والنصوص والملفات مباشرة من المتصفح.'
+      },
+      en: {
+        navHome:'Home', navTools:'Tools', navAbout:'About', navPrivacy:'Privacy', navContact:'Contact', langLabel:'Language',
+        pageTitle:'About us', intro:'Welcome to <strong>AdaaHub</strong>, a center for free daily tools designed to make simple tasks easy and accessible directly from the browser.',
+        intro2:'The idea behind AdaaHub is simple: instead of searching for a different app for every small task, we collect useful tools in one place with a focus on simplicity and speed.',
+        offerTitle:'What does AdaaHub offer?', offerText:'The website includes tools that help with images, text, and everyday tasks, and we continue to improve and add more tools over time.',
+        item1:'Image compression and file size reduction tools.', item2:'Image conversion tools between different formats.', item3:'Image resizing, cropping, and rotation tools.', item4:'Tools to inspect image information and properties.', item5:'Text tools such as word and character counters.',
+        easeTitle:'Ease of use', easeText1:'We strive to design AdaaHub tools in a straightforward way so users can reach what they need without complicated steps or extra software when in-browser processing is possible.', easeText2:'We also aim for the site to work well on phones, tablets, and desktop computers.',
+        filesTitle:'How we handle files', filesText1:'Some AdaaHub tools process files directly in the user\'s browser. In these cases, there is no need to upload the file to AdaaHub servers.', filesText2:'File handling may vary from tool to tool, so we explain how each tool works before use.',
+        goalTitle:'Our goal', goalText1:'Our goal is to build a practical Arabic platform with useful tools for daily life, work, study, and personal use while keeping the interface clean and the experience simple.', goalText2:'We work on improving existing tools and adding new ones based on user needs and feedback.',
+        suggestionsTitle:'Your feedback matters', suggestionsText:'If there is a tool you need and cannot find it, you can send your suggestion via <a href="contact.html">the Contact page</a>. You can also review <a href="../index.html#tools">all available tools</a> from the homepage.',
+        linkHome:'Back to home', linkTools:'Browse tools', linkPrivacy:'Privacy policy', linkTerms:'Terms and conditions', linkContact:'Contact us',
+        footerHome:'Home', footerAbout:'About', footerPrivacy:'Privacy', footerTerms:'Terms', footerContact:'Contact',
+        title:'About us | AdaaHub', description:'Learn about AdaaHub, an Arabic platform offering free daily tools for images, text, and files directly in the browser.'
+      },
+      fr: { navHome:'Accueil', navTools:'Outils', navAbout:'À propos', navPrivacy:'Confidentialité', navContact:'Contact', langLabel:'Langue', pageTitle:'À propos', title:'À propos | AdaaHub', description:'Découvrez AdaaHub, une plateforme arabe offrant des outils quotidiens gratuits pour les images, le texte et les fichiers.' },
+      es: { navHome:'Inicio', navTools:'Herramientas', navAbout:'Acerca de', navPrivacy:'Privacidad', navContact:'Contacto', langLabel:'Idioma', pageTitle:'Acerca de', title:'Acerca de | AdaaHub', description:'Conoce AdaaHub, una plataforma árabe con herramientas diarias gratuitas para imágenes, texto y archivos.' },
+      tr: { navHome:'Anasayfa', navTools:'Araçlar', navAbout:'Hakkında', navPrivacy:'Gizlilik', navContact:'İletişim', langLabel:'Dil', pageTitle:'Hakkımızda', title:'Hakkımızda | AdaaHub', description:'AdaaHub hakkında bilgi edinin; resimler, metinler ve dosyalar için ücretsiz günlük araçlar sunan Arapça platform.' },
+      de: { navHome:'Startseite', navTools:'Tools', navAbout:'Über uns', navPrivacy:'Datenschutz', navContact:'Kontakt', langLabel:'Sprache', pageTitle:'Über uns', title:'Über uns | AdaaHub', description:'Erfahren Sie mehr über AdaaHub, eine arabische Plattform mit kostenlosen täglichen Tools für Bilder, Text und Dateien.' },
+      pt: { navHome:'Início', navTools:'Ferramentas', navAbout:'Sobre', navPrivacy:'Privacidade', navContact:'Contato', langLabel:'Idioma', pageTitle:'Sobre nós', title:'Sobre nós | AdaaHub', description:'Conheça a AdaaHub, uma plataforma árabe com ferramentas diárias gratuitas para imagens, texto e arquivos.' },
+      ru: { navHome:'Главная', navTools:'Инструменты', navAbout:'О нас', navPrivacy:'Конфиденциальность', navContact:'Контакты', langLabel:'Язык', pageTitle:'О нас', title:'О нас | AdaaHub', description:'Узнайте больше о AdaaHub — арабской платформе с бесплатными ежедневными инструментами для изображений, текста и файлов.' },
+      ja: { navHome:'ホーム', navTools:'ツール', navAbout:'概要', navPrivacy:'プライバシー', navContact:'お問い合わせ', langLabel:'言語', pageTitle:'概要', title:'概要 | AdaaHub', description:'AdaaHub について。画像、テキスト、ファイル向けの無料日常ツールを提供するアラビア語プラットフォームです。' }
+    };
+
+    const langSelect = document.getElementById('langSelect');
+    const pageLang = localStorage.getItem('adaahub-lang') || 'ar';
+    langSelect.value = pageLang;
+
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.ar;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = ['ar'].includes(lang) ? 'rtl' : 'ltr';
+      document.body.dir = document.documentElement.dir;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute('content', dict.description || metaDescription.getAttribute('content'));
+      document.title = dict.title || 'AdaaHub';
+      localStorage.setItem('adaahub-lang', lang);
+    }
+
+    langSelect.addEventListener('change', (e) => applyTranslations(e.target.value));
+    applyTranslations(pageLang);
+  </script>
 </body>
-
 </html>
