@@ -4,225 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>الصفحة غير موجودة | AdaaHub</title>
-  <meta name="description" content="الصفحة التي تبحث عنها غير موجودة أو تم نقلها. يمكنك العودة إلى الرئيسية أو استعراض أدوات AdaaHub." />
+  <meta name="description" content="الصفحة التي تبحث عنها غير موجودة أو تم نقلها. يمكنك العودة إلى الرئيسية أو استعراض أدوات AdaaHub.">
   <style>
-    :root{
-      --primary:#2563eb;
-      --primary-dark:#1d4ed8;
-      --primary-soft:#eff6ff;
-      --bg:#f6f8fc;
-      --surface:#ffffff;
-      --text:#0f172a;
-      --muted:#64748b;
-      --border:#e5e7eb;
-      --shadow:0 18px 50px rgba(15,23,42,.08);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root{
-        --primary:#60a5fa;
-        --primary-dark:#93c5fd;
-        --primary-soft:#172554;
-        --bg:#0b1120;
-        --surface:#111827;
-        --text:#e2e8f0;
-        --muted:#94a3b8;
-        --border:#243044;
-      }
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:Arial, Tahoma, sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(37,99,235,.12), transparent 28%),
-        var(--bg);
-      color:var(--text);
-      min-height:100vh;
-      display:grid;
-      place-items:center;
-      padding:24px;
-    }
-
-    .card{
-      width:min(900px, 100%);
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      border-top:4px solid var(--primary);
-    }
-
-    .inner{
-      padding:48px 28px 36px;
-      text-align:center;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      background:var(--primary-soft);
-      color:var(--primary);
-      border:1px solid rgba(37,99,235,.15);
-      border-radius:999px;
-      padding:8px 14px;
-      font-size:13px;
-      font-weight:700;
-      margin-bottom:18px;
-    }
-
-    .code{
-      font-size:clamp(52px, 10vw, 120px);
-      font-weight:900;
-      line-height:1;
-      letter-spacing:-0.06em;
-      margin:0;
-      color:var(--primary);
-    }
-
-    h1{
-      margin:12px 0 12px;
-      font-size:clamp(28px, 4vw, 42px);
-      line-height:1.3;
-      color:var(--text);
-    }
-
-    p{
-      margin:0 auto;
-      max-width:560px;
-      color:var(--muted);
-      font-size:17px;
-      line-height:1.9;
-    }
-
-    .actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:28px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      padding:14px 22px;
-      border-radius:12px;
-      font-weight:700;
-      transition:.2s ease;
-      min-width:170px;
-    }
-
-    .btn.primary{
-      background:linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color:#fff;
-      box-shadow:0 12px 28px rgba(37,99,235,.22);
-    }
-
-    .btn.primary:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn.secondary{
-      background:var(--surface);
-      border:1px solid var(--border);
-      color:var(--text);
-    }
-
-    .btn.secondary:hover{
-      background:var(--primary-soft);
-      border-color:rgba(37,99,235,.2);
-    }
-
-    .quick-links{
-      margin-top:28px;
-      padding-top:22px;
-      border-top:1px solid var(--border);
-      text-align:right;
-    }
-
-    .quick-links h2{
-      margin:0 0 14px;
-      font-size:18px;
-      color:var(--text);
-    }
-
-    .links{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .links a{
-      text-decoration:none;
-      color:var(--primary);
-      background:var(--primary-soft);
-      border:1px solid rgba(37,99,235,.12);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:14px;
-      font-weight:700;
-    }
-
-    .links a:hover{
-      border-color:var(--primary);
-    }
-
-    @media (max-width: 600px){
-      .inner{
-        padding:28px 18px 24px;
-      }
-
-      .actions{
-        flex-direction:column;
-      }
-
-      .btn{
-        width:100%;
-      }
-    }
+    :root{--primary:#2563eb;--primary-dark:#1d4ed8;--primary-soft:#eff6ff;--bg:#f6f8fc;--surface:#ffffff;--text:#0f172a;--muted:#64748b;--border:#e5e7eb;--shadow:0 18px 50px rgba(15,23,42,.08)}
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:radial-gradient(circle at top right, rgba(37,99,235,.12), transparent 28%),var(--bg);color:var(--text);min-height:100vh;display:grid;place-items:center;padding:24px}a{text-decoration:none} .card{width:min(900px,100%);background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;border-top:4px solid var(--primary)}.inner{padding:48px 28px 36px;text-align:center}.badge{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--primary-soft);color:var(--primary);border:1px solid rgba(37,99,235,.15);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;margin-bottom:18px}.code{font-size:clamp(52px, 10vw, 120px);font-weight:900;line-height:1;letter-spacing:-.06em;margin:0;color:var(--primary)}h1{margin:12px 0 12px;font-size:clamp(28px, 4vw, 42px);line-height:1.3;color:var(--text)}p{margin:0 auto;max-width:560px;color:var(--muted);font-size:17px;line-height:1.9}.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:14px 22px;border-radius:12px;font-weight:700;transition:.2s ease;min-width:170px}.btn.primary{background:linear-gradient(135deg, var(--primary), var(--primary-dark));color:#fff;box-shadow:0 12px 28px rgba(37,99,235,.22)}.btn.primary:hover{transform:translateY(-2px)}.btn.secondary{background:var(--surface);border:1px solid var(--border);color:var(--text)}.btn.secondary:hover{background:var(--primary-soft);border-color:rgba(37,99,235,.2)}.quick-links{margin-top:28px;padding-top:22px;border-top:1px solid var(--border);text-align:right}.quick-links h2{margin:0 0 14px;font-size:18px;color:var(--text)}.links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}.links a{text-decoration:none;color:var(--primary);background:var(--primary-soft);border:1px solid rgba(37,99,235,.12);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700}.links a:hover{border-color:var(--primary)}.lang-wrap{display:flex;align-items:center;justify-content:center;gap:8px;margin:18px auto 0;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#fff;max-width:200px}.lang-wrap label{font-size:13px;font-weight:700;color:#475569}.lang-select{border:0;background:transparent;color:#111827;font:inherit;font-weight:700;outline:none;cursor:pointer}@media (max-width:600px){.inner{padding:28px 18px 24px}.actions{flex-direction:column}.btn{width:100%}.quick-links{text-align:center}}
   </style>
 </head>
 <body>
-
   <div class="card">
     <div class="inner">
-      <div class="badge">⚠️ خطأ 404</div>
+      <div class="badge" data-i18n="badge">⚠️ خطأ 404</div>
       <div class="code">404</div>
-      <h1>الصفحة غير موجودة</h1>
-      <p>
-        عذراً، الصفحة التي تحاول الوصول إليها غير موجودة أو ربما تم نقلها إلى عنوان آخر.
-        يمكنك العودة إلى الصفحة الرئيسية أو استخدام أحد الأدوات الشائعة أدناه.
-      </p>
+      <h1 data-i18n="title">الصفحة غير موجودة</h1>
+      <p data-i18n="text">عذراً، الصفحة التي تحاول الوصول إليها غير موجودة أو ربما تم نقلها إلى عنوان آخر. يمكنك العودة إلى الصفحة الرئيسية أو استخدام أحد الأدوات الشائعة أدناه.</p>
+
+      <div class="lang-wrap" aria-label="Language selector">
+        <label for="langSelect" data-i18n="langLabel">اللغة</label>
+        <select id="langSelect" class="lang-select">
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="tr">Türkçe</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
 
       <div class="actions">
-        <a class="btn primary" href="/index.html">العودة إلى الرئيسية</a>
-        <a class="btn secondary" href="/tools/resize.html">استخدم أداة تغيير الحجم</a>
+        <a class="btn primary" href="/index.html" data-i18n="homeBtn">العودة إلى الرئيسية</a>
+        <a class="btn secondary" href="/tools/resize.html" data-i18n="toolBtn">استخدم أداة تغيير الحجم</a>
       </div>
 
       <div class="quick-links">
-        <h2>أدوات شائعة</h2>
+        <h2 data-i18n="quickTitle">أدوات شائعة</h2>
         <div class="links">
-          <a href="/tools/compress.html">ضغط الصور</a>
-          <a href="/tools/resize.html">تغيير الحجم</a>
-          <a href="/tools/crop.html">قص الصور</a>
-          <a href="/tools/ocr.html">OCR</a>
-          <a href="/tools/pdf.html">PDF</a>
-          <a href="/tools/word-counter.html">عداد الكلمات</a>
+          <a href="/tools/compress.html" data-i18n="link1">ضغط الصور</a>
+          <a href="/tools/resize.html" data-i18n="link2">تغيير الحجم</a>
+          <a href="/tools/crop.html" data-i18n="link3">قص الصور</a>
+          <a href="/tools/ocr.html" data-i18n="link4">OCR</a>
+          <a href="/tools/pdf.html" data-i18n="link5">PDF</a>
+          <a href="/tools/word-counter.html" data-i18n="link6">عداد الكلمات</a>
         </div>
       </div>
     </div>
   </div>
 
+  <script>
+    const translations = {
+      ar: { badge:'⚠️ خطأ 404', title:'الصفحة غير موجودة', text:'عذراً، الصفحة التي تحاول الوصول إليها غير موجودة أو ربما تم نقلها إلى عنوان آخر. يمكنك العودة إلى الصفحة الرئيسية أو استخدام أحد الأدوات الشائعة أدناه.', langLabel:'اللغة', homeBtn:'العودة إلى الرئيسية', toolBtn:'استخدم أداة تغيير الحجم', quickTitle:'أدوات شائعة', link1:'ضغط الصور', link2:'تغيير الحجم', link3:'قص الصور', link4:'OCR', link5:'PDF', link6:'عداد الكلمات', titleMeta:'الصفحة غير موجودة | AdaaHub', description:'الصفحة التي تبحث عنها غير موجودة أو تم نقلها. يمكنك العودة إلى الرئيسية أو استعراض أدوات AdaaHub.' },
+      en: { badge:'⚠️ 404 error', title:'Page not found', text:'Sorry, the page you are looking for does not exist or may have been moved. You can return to the homepage or use one of the common tools below.', langLabel:'Language', homeBtn:'Back to home', toolBtn:'Use resize tool', quickTitle:'Popular tools', link1:'Compress images', link2:'Resize', link3:'Crop images', link4:'OCR', link5:'PDF', link6:'Word counter', titleMeta:'Page not found | AdaaHub', description:'The page you are looking for does not exist or may have been moved. You can return to the home page or browse AdaaHub tools.' },
+      fr: { badge:'⚠️ Erreur 404', title:'Page introuvable', text:'Désolé, la page que vous recherchez n\'existe pas ou a été déplacée. Vous pouvez revenir à l\'accueil ou utiliser l\'un des outils populaires ci-dessous.', langLabel:'Langue', homeBtn:'Retour à l\'accueil', toolBtn:'Utiliser l\'outil de redimensionnement', quickTitle:'Outils populaires', link1:'Compresser', link2:'Redimensionner', link3:'Recadrer', link4:'OCR', link5:'PDF', link6:'Compteur', titleMeta:'Page introuvable | AdaaHub', description:'La page recherchée n\'existe pas ou a été déplacée. Vous pouvez revenir à l\'accueil ou explorer les outils AdaaHub.' },
+      es: { badge:'⚠️ Error 404', title:'Página no encontrada', text:'Lo sentimos, la página que buscas no existe o se ha movido. Puedes volver a la página principal o usar una de las herramientas populares.', langLabel:'Idioma', homeBtn:'Volver al inicio', toolBtn:'Usar herramienta de cambio de tamaño', quickTitle:'Herramientas populares', link1:'Comprimir imágenes', link2:'Cambiar tamaño', link3:'Recortar', link4:'OCR', link5:'PDF', link6:'Contador', titleMeta:'Página no encontrada | AdaaHub', description:'La página que buscas no existe o se ha movido. Puedes volver al inicio o explorar las herramientas de AdaaHub.' },
+      tr: { badge:'⚠️ 404 hatası', title:'Sayfa bulunamadı', text:'Üzgünüz, aradığınız sayfa mevcut değil veya başka bir adrese taşınmış olabilir. Ana sayfaya dönebilir veya aşağıdaki popüler araçlardan birini kullanabilirsiniz.', langLabel:'Dil', homeBtn:'Ana sayfaya dön', toolBtn:'Boyutlandırma aracını kullan', quickTitle:'Popüler araçlar', link1:'Resim sıkıştır', link2:'Boyutlandır', link3:'Kırp', link4:'OCR', link5:'PDF', link6:'Kelime sayacı', titleMeta:'Sayfa bulunamadı | AdaaHub', description:'Aradığınız sayfa mevcut değil veya taşınmış olabilir. Ana sayfaya dönebilir veya AdaaHub araçlarını inceleyebilirsiniz.' },
+      de: { badge:'⚠️ 404-Fehler', title:'Seite nicht gefunden', text:'Es tut uns leid, die gewünschte Seite existiert nicht oder wurde verschoben. Sie können zur Startseite zurückkehren oder eines der häufig genutzten Tools verwenden.', langLabel:'Sprache', homeBtn:'Zur Startseite', toolBtn:'Tool zum Ändern der Größe verwenden', quickTitle:'Beliebte Tools', link1:'Bilder komprimieren', link2:'Größe ändern', link3:'Bilder zuschneiden', link4:'OCR', link5:'PDF', link6:'Wörterzähler', titleMeta:'Seite nicht gefunden | AdaaHub', description:'Die gesuchte Seite existiert nicht oder wurde verschoben. Sie können zur Startseite zurückkehren oder die AdaaHub-Tools durchsuchen.' },
+      pt: { badge:'⚠️ Erro 404', title:'Página não encontrada', text:'Desculpe, a página que você procura não existe ou foi movida. Você pode voltar para a página inicial ou usar uma das ferramentas populares abaixo.', langLabel:'Idioma', homeBtn:'Voltar ao início', toolBtn:'Usar ferramenta de redimensionamento', quickTitle:'Ferramentas populares', link1:'Comprimir imagens', link2:'Redimensionar', link3:'Cortar imagens', link4:'OCR', link5:'PDF', link6:'Contador', titleMeta:'Página não encontrada | AdaaHub', description:'A página que você procura não existe ou foi movida. Você pode voltar à página inicial ou navegar por ferramentas do AdaaHub.' },
+      ru: { badge:'⚠️ Ошибка 404', title:'Страница не найдена', text:'Извините, страница, которую вы ищете, не существует или была перемещена. Вы можете вернуться на главную страницу или использовать один из популярных инструментов ниже.', langLabel:'Язык', homeBtn:'Вернуться на главную', toolBtn:'Использовать инструмент изменения размера', quickTitle:'Популярные инструменты', link1:'Сжатие изображений', link2:'Изменить размер', link3:'Обрезать изображение', link4:'OCR', link5:'PDF', link6:'Счётчик слов', titleMeta:'Страница не найдена | AdaaHub', description:'Страница, которую вы ищете, не существует или была перемещена. Вы можете вернуться на главную страницу или изучить инструменты AdaaHub.' },
+      ja: { badge:'⚠️ 404 エラー', title:'ページが見つかりません', text:'お探しのページは存在しないか、移動された可能性があります。ホームに戻るか、下の人気ツールをお試しください。', langLabel:'言語', homeBtn:'ホームへ戻る', toolBtn:'サイズ変更ツールを使う', quickTitle:'人気ツール', link1:'画像圧縮', link2:'サイズ変更', link3:'画像のトリミング', link4:'OCR', link5:'PDF', link6:'文字数', titleMeta:'ページが見つかりません | AdaaHub', description:'お探しのページは存在しないか、移動された可能性があります。ホームに戻るか、AdaaHub のツールをご覧ください。' }
+    };
+
+    const langSelect = document.getElementById('langSelect');
+    const pageLang = localStorage.getItem('adaahub-lang') || 'ar';
+    langSelect.value = pageLang;
+
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.ar;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = ['ar'].includes(lang) ? 'rtl' : 'ltr';
+      document.body.dir = document.documentElement.dir;
+      document.querySelectorAll('[data-i18n]').forEach(el => { if (dict[el.dataset.i18n]) el.textContent = dict[el.dataset.i18n]; });
+      document.title = dict.titleMeta || 'AdaaHub';
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute('content', dict.description || 'AdaaHub');
+      localStorage.setItem('adaahub-lang', lang);
+    }
+    langSelect.addEventListener('change', (e) => applyTranslations(e.target.value));
+    applyTranslations(pageLang);
+  </script>
 </body>
 </html>
