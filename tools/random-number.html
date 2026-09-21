@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timestamp Converter | AdaaHub</title>
+  <meta name="description" content="تحويل التاريخ إلى طابع زمني Unix والعكس." />
+  <style>
+    :root{--primary:#2563eb;--bg:#f6f8fc;--surface:#fff;--text:#111827;--muted:#64748b;--border:#e5e7eb;--shadow:0 16px 45px rgba(15,23,42,.09)}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8} a{text-decoration:none;color:inherit} button,input{font:inherit}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .wrap{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px}.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#4f46e5);display:grid;place-items:center;color:#fff}.nav{display:flex;gap:8px;align-items:center}.nav a,.theme-btn{padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;color:#334155;cursor:pointer}.nav a:hover,.theme-btn:hover{border-color:#bfdbfe;background:#eff6ff;color:var(--primary)}
+    .container{max-width:1100px;margin:0 auto;padding:32px 18px 60px}.hero{text-align:center;margin-bottom:24px}.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#eff6ff;color:var(--primary);border:1px solid #dbeafe;font-weight:700}.hero h1{font-size:clamp(28px,4vw,42px);margin:16px 0 8px}.subtitle{max-width:700px;margin:0 auto;color:var(--muted)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:8px}.field input{padding:12px 14px;border:1px solid var(--border);border-radius:12px}.result{margin-top:16px;padding:16px;border-radius:12px;background:#f8fafc;border:1px solid var(--border);font-weight:700}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.btn{padding:12px 18px;border:none;border-radius:10px;cursor:pointer;font-weight:700}.primary{background:var(--primary);color:#fff}.secondary{background:#f8fafc;color:#334155;border:1px solid var(--border)}
+    @media (max-width:700px){ .grid{grid-template-columns:1fr}.wrap{flex-wrap:wrap}.nav{width:100%;justify-content:flex-end}.actions{flex-direction:column}.btn{width:100%} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span><span>Adaa<span style="color:var(--primary)">Hub</span></span></a>
+      <nav class="nav">
+        <a href="../index.html">الرئيسية</a>
+        <button class="theme-btn" type="button" id="themeBtn">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="badge">🕒 أداة مجانية</div>
+      <h1>Timestamp Converter</h1>
+      <p class="subtitle">حول التاريخ إلى Unix timestamp والعكس بسرعة.</p>
+    </section>
+    <section class="card">
+      <div class="grid">
+        <div class="field"><label>تاريخ</label><input id="dateInput" type="datetime-local" value="2026-09-21T12:00" /></div>
+        <div class="field"><label>Unix Timestamp</label><input id="timestampInput" type="number" value="1758890400" /></div>
+      </div>
+      <div class="result" id="resultText">2026-09-21 12:00:00</div>
+      <div class="actions">
+        <button class="btn primary" id="convertDateBtn" type="button">تحويل التاريخ</button>
+        <button class="btn secondary" id="convertTsBtn" type="button">تحويل الطابع الزمني</button>
+      </div>
+    </section>
+  </main>
+  <script>
+    const dateInput = document.getElementById('dateInput');
+    const timestampInput = document.getElementById('timestampInput');
+    const resultText = document.getElementById('resultText');
+    function formatDate(date){ return new Date(date).toLocaleString('en-GB', {timeZone:'UTC'}); }
+    document.getElementById('convertDateBtn').addEventListener('click', () => {
+      const value = new Date(dateInput.value);
+      const ts = Math.floor(value.getTime()/1000);
+      timestampInput.value = ts;
+      resultText.textContent = `Unix: ${ts} | Date: ${formatDate(value)}`;
+    });
+    document.getElementById('convertTsBtn').addEventListener('click', () => {
+      const ts = Number(timestampInput.value);
+      const date = new Date(ts * 1000);
+      dateInput.value = date.toISOString().slice(0,16);
+      resultText.textContent = `Unix: ${ts} | Date: ${formatDate(date)}`;
+    });
+    const savedTheme = localStorage.getItem('adaahub-theme');
+    if (savedTheme === 'dark') document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)';
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const isDark = document.documentElement.style.filter;
+      if (isDark) { document.documentElement.style.filter = ''; localStorage.setItem('adaahub-theme','light'); }
+      else { document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)'; localStorage.setItem('adaahub-theme','dark'); }
+    });
+  </script>
+</body>
+</html>

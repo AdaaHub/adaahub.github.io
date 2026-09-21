@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Base64 Encoder | AdaaHub</title>
+  <meta name="description" content="ترميز وفك تشفير Base64 بسرعة داخل المتصفح." />
+  <style>
+    :root {
+      --primary:#2563eb; --secondary:#1d4ed8; --bg:#f6f8fc; --surface:#fff;
+      --text:#111827; --muted:#64748b; --border:#e5e7eb; --shadow:0 16px 45px rgba(15,23,42,.09);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+    a{color:inherit;text-decoration:none} button,input,textarea{font:inherit} .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .wrap{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px}.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#4f46e5);display:grid;place-items:center;color:#fff}
+    .nav{display:flex;gap:8px;align-items:center}.nav a,.theme-btn{padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;color:#334155;cursor:pointer}.nav a:hover,.theme-btn:hover{border-color:#bfdbfe;background:#eff6ff;color:var(--primary)}
+    .container{max-width:1100px;margin:0 auto;padding:32px 18px 60px}.hero{text-align:center;margin-bottom:24px}.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#eff6ff;color:var(--primary);border:1px solid #dbeafe;font-weight:700}.hero h1{font-size:clamp(28px,4vw,42px);margin:16px 0 8px}.subtitle{max-width:700px;margin:0 auto;color:var(--muted)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}.pill{padding:10px 16px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;color:#334155;cursor:pointer;font-weight:700}.pill.active{background:#eff6ff;border-color:#bfdbfe;color:var(--primary)}
+    textarea{width:100%;min-height:220px;border:1px solid var(--border);border-radius:14px;padding:16px;resize:vertical;background:#fff;color:var(--text)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.btn{padding:12px 18px;border:none;border-radius:10px;cursor:pointer;font-weight:700}.primary{background:var(--primary);color:#fff}.secondary{background:#f8fafc;color:#334155;border:1px solid var(--border)}
+    .meta{margin-top:16px;color:var(--muted);font-size:14px}.info{margin-top:18px;background:#f8fafc;padding:18px;border:1px solid var(--border);border-radius:14px;color:var(--muted)}
+    @media (max-width:700px){ .wrap{flex-wrap:wrap}.nav{width:100%;justify-content:flex-end} .actions{flex-direction:column}.btn{width:100%} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span><span>Adaa<span style="color:var(--primary)">Hub</span></span></a>
+      <nav class="nav">
+        <a href="../index.html">الرئيسية</a>
+        <button class="theme-btn" type="button" id="themeBtn">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="badge">⚡ أداة مجانية</div>
+      <h1>Base64 Encoder</h1>
+      <p class="subtitle">ترميز وفك تشفير نصوصك بسرعة داخل المتصفح بدون إرسال أي بيانات إلى الخادم.</p>
+    </section>
+    <section class="card">
+      <div class="controls">
+        <button class="pill active" data-mode="encode" type="button">ترميز</button>
+        <button class="pill" data-mode="decode" type="button">فك الترميز</button>
+      </div>
+      <textarea id="inputText" placeholder="اكتب النص أو الصق المحتوى هنا..."></textarea>
+      <div class="actions">
+        <button class="btn primary" id="runBtn" type="button">تنفيذ</button>
+        <button class="btn secondary" id="copyBtn" type="button">نسخ النتيجة</button>
+      </div>
+      <textarea id="outputText" placeholder="النتيجة ستظهر هنا..." style="margin-top:14px"></textarea>
+      <div class="meta">الوظيفة: <strong id="modeLabel">ترميز</strong></div>
+      <div class="info">ملاحظـة: هذه الأداة تعمل داخل المتصفح بالكامل، ولا يتم حفظ بياناتك في أي خادم.</div>
+    </section>
+  </main>
+  <script>
+    const inputText = document.getElementById('inputText');
+    const outputText = document.getElementById('outputText');
+    const modeLabel = document.getElementById('modeLabel');
+    let mode = 'encode';
+    document.querySelectorAll('.pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        mode = btn.dataset.mode;
+        modeLabel.textContent = mode === 'encode' ? 'ترميز' : 'فك الترميز';
+        document.querySelectorAll('.pill').forEach(b => b.classList.toggle('active', b === btn));
+      });
+    });
+    document.getElementById('runBtn').addEventListener('click', () => {
+      const value = inputText.value;
+      try {
+        outputText.value = mode === 'encode' ? btoa(unescape(encodeURIComponent(value))) : decodeURIComponent(escape(atob(value)));
+      } catch {
+        outputText.value = '❌ المدخلات غير صالحة لهذا الوضع.';
+      }
+    });
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      if (!outputText.value) return;
+      await navigator.clipboard.writeText(outputText.value);
+      document.getElementById('copyBtn').textContent = 'تم النسخ';
+      setTimeout(() => document.getElementById('copyBtn').textContent = 'نسخ النتيجة', 1200);
+    });
+    const savedTheme = localStorage.getItem('adaahub-theme');
+    if (savedTheme === 'dark') document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)';
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const isDark = document.documentElement.style.filter;
+      if (isDark) { document.documentElement.style.filter = ''; localStorage.setItem('adaahub-theme','light'); }
+      else { document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)'; localStorage.setItem('adaahub-theme','dark'); }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UUID Generator | AdaaHub</title>
+  <meta name="description" content="توليد UUIDات عشوائية ومفيدة بسرعة." />
+  <style>
+    :root{--primary:#2563eb;--bg:#f6f8fc;--surface:#fff;--text:#111827;--muted:#64748b;--border:#e5e7eb;--shadow:0 16px 45px rgba(15,23,42,.09)}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8} a{text-decoration:none;color:inherit} button{font:inherit}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .wrap{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px}.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#4f46e5);display:grid;place-items:center;color:#fff}.nav{display:flex;gap:8px;align-items:center}.nav a,.theme-btn{padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;color:#334155;cursor:pointer}.nav a:hover,.theme-btn:hover{border-color:#bfdbfe;background:#eff6ff;color:var(--primary)}
+    .container{max-width:1100px;margin:0 auto;padding:32px 18px 60px}.hero{text-align:center;margin-bottom:24px}.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#eff6ff;color:var(--primary);border:1px solid #dbeafe;font-weight:700}.hero h1{font-size:clamp(28px,4vw,42px);margin:16px 0 8px}.subtitle{max-width:700px;margin:0 auto;color:var(--muted)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+    .output{padding:18px;border-radius:14px;background:#f8fafc;border:1px solid var(--border);font-size:18px;font-weight:800;word-break:break-all;min-height:70px;display:flex;align-items:center;justify-content:center}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.btn{padding:12px 18px;border:none;border-radius:10px;cursor:pointer;font-weight:700}.primary{background:var(--primary);color:#fff}.secondary{background:#f8fafc;color:#334155;border:1px solid var(--border)}
+    @media (max-width:700px){ .wrap{flex-wrap:wrap}.nav{width:100%;justify-content:flex-end}.actions{flex-direction:column}.btn{width:100%} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span><span>Adaa<span style="color:var(--primary)">Hub</span></span></a>
+      <nav class="nav">
+        <a href="../index.html">الرئيسية</a>
+        <button class="theme-btn" type="button" id="themeBtn">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="badge">🧩 أداة مجانية</div>
+      <h1>UUID Generator</h1>
+      <p class="subtitle">توليد UUIDات عشوائية ومناسبة للاستخدام في المشاريع أو الاختبارات.</p>
+    </section>
+    <section class="card">
+      <div class="output" id="uuidOutput">a18d0c8d-3d4c-4d92-9f47-3eeeb56a787e</div>
+      <div class="actions">
+        <button class="btn primary" id="generateBtn" type="button">توليد UUID</button>
+        <button class="btn secondary" id="copyBtn" type="button">نسخ</button>
+      </div>
+    </section>
+  </main>
+  <script>
+    function generateUuid(){
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+        const r = Math.random()*16|0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+    document.getElementById('generateBtn').addEventListener('click', () => {
+      document.getElementById('uuidOutput').textContent = generateUuid();
+    });
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const value = document.getElementById('uuidOutput').textContent;
+      await navigator.clipboard.writeText(value);
+      document.getElementById('copyBtn').textContent = 'تم النسخ';
+      setTimeout(() => document.getElementById('copyBtn').textContent = 'نسخ', 1000);
+    });
+    const savedTheme = localStorage.getItem('adaahub-theme');
+    if (savedTheme === 'dark') document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)';
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const isDark = document.documentElement.style.filter;
+      if (isDark) { document.documentElement.style.filter = ''; localStorage.setItem('adaahub-theme','light'); }
+      else { document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)'; localStorage.setItem('adaahub-theme','dark'); }
+    });
+  </script>
+</body>
+</html>

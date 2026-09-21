@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Generator | AdaaHub</title>
+  <meta name="description" content="إنشاء كود QR من أي نص أو رابط مباشرة داخل المتصفح." />
+  <style>
+    :root{--primary:#2563eb;--bg:#f6f8fc;--surface:#fff;--text:#111827;--muted:#64748b;--border:#e5e7eb;--shadow:0 16px 45px rgba(15,23,42,.09)}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8} a{text-decoration:none;color:inherit} button,input,textarea{font:inherit}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .wrap{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px}.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#4f46e5);display:grid;place-items:center;color:#fff}.nav{display:flex;gap:8px;align-items:center}.nav a,.theme-btn{padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;color:#334155;cursor:pointer}.nav a:hover,.theme-btn:hover{border-color:#bfdbfe;background:#eff6ff;color:var(--primary)}
+    .container{max-width:1100px;margin:0 auto;padding:32px 18px 60px}.hero{text-align:center;margin-bottom:24px}.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#eff6ff;color:var(--primary);border:1px solid #dbeafe;font-weight:700}.hero h1{font-size:clamp(28px,4vw,42px);margin:16px 0 8px}.subtitle{max-width:700px;margin:0 auto;color:var(--muted)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+    textarea{width:100%;min-height:120px;border:1px solid var(--border);border-radius:14px;padding:16px;resize:vertical;background:#fff;color:var(--text)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.btn{padding:12px 18px;border:none;border-radius:10px;cursor:pointer;font-weight:700}.primary{background:var(--primary);color:#fff}.secondary{background:#f8fafc;color:#334155;border:1px solid var(--border)}
+    .qr-box{margin-top:18px;background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;justify-content:center;align-items:center;min-height:260px}
+    canvas{max-width:240px;width:100%;height:auto;border-radius:12px;background:#fff;padding:10px;border:1px solid var(--border)}
+    @media (max-width:700px){ .wrap{flex-wrap:wrap}.nav{width:100%;justify-content:flex-end}.actions{flex-direction:column}.btn{width:100%} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span><span>Adaa<span style="color:var(--primary)">Hub</span></span></a>
+      <nav class="nav">
+        <a href="../index.html">الرئيسية</a>
+        <button class="theme-btn" type="button" id="themeBtn">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="badge">📱 أداة مجانية</div>
+      <h1>QR Generator</h1>
+      <p class="subtitle">أنشئ كود QR لأي نص أو رابط من خلال المتصفح فقط.</p>
+    </section>
+    <section class="card">
+      <textarea id="qrInput" placeholder="اكتب النص أو الرابط هنا..."></textarea>
+      <div class="actions">
+        <button class="btn primary" id="generateBtn" type="button">إنشاء</button>
+        <button class="btn secondary" id="downloadBtn" type="button">تحميل الصورة</button>
+      </div>
+      <div class="qr-box"><canvas id="qrCanvas"></canvas></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <script>
+    const qrInput = document.getElementById('qrInput');
+    const canvas = document.getElementById('qrCanvas');
+    function generateQr(){
+      const value = qrInput.value.trim();
+      if (!value) return;
+      QRCode.toCanvas(canvas, value, { width: 220, margin: 2, color: { dark: '#111827', light: '#ffffff' } }, error => {
+        if (error) console.error(error);
+      });
+    }
+    document.getElementById('generateBtn').addEventListener('click', generateQr);
+    qrInput.addEventListener('input', generateQr);
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'adaahub-qr.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+    const savedTheme = localStorage.getItem('adaahub-theme');
+    if (savedTheme === 'dark') document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)';
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const isDark = document.documentElement.style.filter;
+      if (isDark) { document.documentElement.style.filter = ''; localStorage.setItem('adaahub-theme','light'); }
+      else { document.documentElement.style.filter = 'invert(0.06) hue-rotate(180deg)'; localStorage.setItem('adaahub-theme','dark'); }
+    });
+  </script>
+</body>
+</html>
