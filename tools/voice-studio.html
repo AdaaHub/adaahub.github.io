@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="استوديو الصوت من AdaaHub: جهّز نصك لتحويله إلى كلام، اختر اللغة والصوت والسرعة، واستكشف ميزة استنساخ الصوت.">
+  <meta name="theme-color" content="#635bff">
+  <title>استوديو الصوت بالذكاء الاصطناعي | AdaaHub</title>
+  <style>
+    :root{--bg:#f6f7fb;--card:#fff;--text:#172033;--muted:#667085;--line:#e6e8ef;--primary:#635bff;--primary2:#4f46e5;--soft:#eeedff;--green:#12805c;--shadow:0 12px 34px rgba(20,25,50,.07)}
+    body.dark{--bg:#10131c;--card:#191e2b;--text:#f3f5ff;--muted:#a6aec2;--line:#30384b;--soft:#29264a;--shadow:0 12px 34px rgba(0,0,0,.22)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8;transition:background .2s,color .2s}
+    a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:auto}
+    header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-size:24px;font-weight:900;color:var(--primary);letter-spacing:-1px}.navlinks{display:flex;gap:22px;align-items:center;color:var(--muted);font-size:14px}.nav-actions{display:flex;gap:10px;align-items:center}
+    button,.btn{border:0;border-radius:12px;padding:11px 17px;font:inherit;font-weight:700;cursor:pointer;transition:.2s}.btn-primary{background:var(--primary);color:white}.btn-primary:hover{background:var(--primary2);transform:translateY(-1px)}.btn-soft{background:var(--soft);color:var(--primary)}.icon-btn{background:var(--bg);color:var(--text);border:1px solid var(--line);padding:9px 12px}
+    .hero{text-align:center;padding:56px 0 30px}.badge{display:inline-block;background:var(--soft);color:var(--primary);padding:5px 14px;border-radius:99px;font-size:13px;font-weight:bold}.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.35;margin:17px 0 10px}.hero p{max-width:720px;margin:0 auto;color:var(--muted);font-size:17px}
+    .notice{margin:20px auto 0;max-width:850px;border:1px solid #f0d69a;background:#fff8e7;color:#795414;border-radius:14px;padding:13px 17px;font-size:14px}
+    body.dark .notice{background:#352c1a;color:#f5d993;border-color:#5b4a27}
+    .workspace{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,.8fr);gap:22px;align-items:start;margin:22px auto 50px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}.panel h2{margin:0 0 16px;font-size:21px}.field{margin-bottom:17px}.field label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px 13px;font:inherit;outline:none}.field textarea{min-height:190px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px #635bff22}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.range-row{display:flex;align-items:center;gap:12px}.range-row input{padding:0;accent-color:var(--primary)}.range-val{font-weight:bold;color:var(--primary);min-width:48px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hint{font-size:12px;color:var(--muted);margin-top:6px}.result{margin-top:20px;border:1px dashed var(--line);border-radius:15px;padding:17px;background:var(--bg)}.result strong{display:block;margin-bottom:8px}.status{color:var(--muted);font-size:14px}.progress{height:7px;background:var(--line);border-radius:20px;overflow:hidden;margin:12px 0}.progress span{display:block;width:0;height:100%;background:var(--primary);transition:width .2s}
+    .side-card{margin-bottom:18px}.side-card p{color:var(--muted);font-size:14px;margin:7px 0}.credit{font-size:26px;font-weight:900;color:var(--primary)}.feature{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.feature:last-child{border-bottom:0}.feature-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:var(--soft);color:var(--primary);flex-shrink:0}
+    .clone-box{border:1px solid var(--line);border-radius:15px;padding:17px;background:var(--bg)}.clone-box p{color:var(--muted);font-size:13px}.clone-box input{max-width:100%}.consent{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--muted);margin:14px 0}.consent input{margin-top:7px;accent-color:var(--primary)}
+    .content{padding:0 0 55px}.content h2{font-size:25px;margin:30px 0 10px}.content p,.content li{color:var(--muted)}.faq details{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 18px;margin:10px 0}.faq summary{cursor:pointer;font-weight:700}.faq p{margin-bottom:0;color:var(--muted)}
+    footer{border-top:1px solid var(--line);background:var(--card);padding:25px 0;color:var(--muted);font-size:14px}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media(max-width:800px){.workspace{grid-template-columns:1fr}.navlinks{display:none}.hero{padding-top:38px}.panel{padding:19px}}
+    @media(max-width:480px){.grid2{grid-template-columns:1fr}.hero p{font-size:15px}.actions>*{flex:1}.nav{min-height:66px}.brand{font-size:21px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="../index.html" aria-label="AdaaHub الرئيسية">AdaaHub</a>
+    <nav class="navlinks" aria-label="القائمة الرئيسية">
+      <a href="../index.html">الرئيسية</a><a href="../tools/">كل الأدوات</a><a href="#features">المميزات</a><a href="#faq">الأسئلة الشائعة</a>
+    </nav>
+    <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button" aria-label="تغيير المظهر">🌙</button><a class="btn btn-soft" href="../index.html">الأدوات</a></div>
+  </div>
+</header>
+
+<main>
+  <section class="hero container">
+    <span class="badge">🎙️ أداة صوت بالذكاء الاصطناعي</span>
+    <h1>استوديو الصوت — حوّل النص إلى كلام</h1>
+    <p>اكتب النص، وحدد اللغة والصوت والسرعة، وجهّز إعدادات التعليق الصوتي لفيديوهاتك. الواجهة الحالية تجريبية، وتحتاج إلى ربط مزود صوت قبل إنشاء ملفات صوتية حقيقية.</p>
+    <div class="notice"><strong>تنبيه:</strong> تحويل النص إلى صوت واستنساخ الصوت غير مفعّلين بعد. لن يتم رفع نصك أو تسجيلك أو إنشاء ملف صوتي من هذه الصفحة حاليًا.</div>
+  </section>
+
+  <section class="container workspace" aria-label="استوديو الصوت">
+    <div class="panel">
+      <h2>🎧 تحويل النص إلى كلام</h2>
+      <div class="field">
+        <label for="scriptText">النص المراد تحويله</label>
+        <textarea id="scriptText" maxlength="5000" placeholder="اكتب النص هنا... مثال: هل تعلم أن الأخطبوط لديه ثلاثة قلوب؟"></textarea>
+        <div class="hint"><span id="charCount">0</span> / 5000 حرف</div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="language">اللغة واللهجة</label>
+          <select id="language">
+            <option value="ar-EG">العربية — اللهجة المصرية</option><option value="ar">العربية الفصحى</option><option value="en-US">الإنجليزية — أمريكية</option><option value="en-GB">الإنجليزية — بريطانية</option><option value="fr-FR">الفرنسية</option><option value="es-ES">الإسبانية</option><option value="tr-TR">التركية</option>
+          </select>
+        </div>
+        <div class="field"><label for="voice">نوع الصوت</label>
+          <select id="voice"><option>صوت رجالي طبيعي</option><option>صوت نسائي طبيعي</option><option>صوت وثائقي</option><option>صوت هادئ</option><option>صوت حماسي</option></select>
+        </div>
+      </div>
+      <div class="field"><label for="speed">سرعة الكلام</label><div class="range-row"><input id="speed" type="range" min="0.7" max="1.3" step="0.1" value="1"><span class="range-val" id="speedVal">1.0×</span></div></div>
+      <div class="field"><label for="tone">نبرة الأداء</label><select id="tone"><option>طبيعية</option><option>حماسية</option><option>هادئة</option><option>وثائقية</option><option>قصصية</option></select></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="generateBtn" type="button">إنشاء الصوت</button>
+        <button class="btn btn-soft" id="clearBtn" type="button">مسح النص</button>
+      </div>
+      <div class="result" aria-live="polite">
+        <strong>معاينة الصوت</strong>
+        <div class="status" id="status">اكتب نصك أولًا. إنشاء الصوت غير متاح قبل ربط مزود الخدمة.</div>
+        <div class="progress"><span id="progressBar"></span></div>
+        <audio id="audioPlayer" controls hidden></audio>
+        <a id="downloadLink" class="btn btn-soft" hidden download="adaahub-voice.mp3">تنزيل الصوت</a>
+      </div>
+    </div>
+
+    <aside>
+      <div class="panel side-card">
+        <h2>🪙 الرصيد اليومي</h2>
+        <div class="credit">— دقيقة</div>
+        <p>عداد الرصيد والاشتراكات غير متصلين حاليًا. سيتم تفعيلهما بعد إعداد نظام الحسابات والخادم.</p>
+        <button class="btn btn-soft" type="button" id="plansBtn">عرض الباقات</button>
+        <p id="plansNote" hidden>الباقات المدفوعة لم تُفعّل بعد. لن يتم خصم أي مبلغ من خلال هذه الصفحة.</p>
+      </div>
+      <div class="panel side-card" id="features">
+        <h2>✨ المميزات المخطط لها</h2>
+        <div class="feature"><div class="feature-icon">🗣️</div><div><strong>أصوات متعددة</strong><p>اختيار صوت ولهجة ونبرة تناسب محتواك.</p></div></div>
+        <div class="feature"><div class="feature-icon">⚡</div><div><strong>تحكم في السرعة</strong><p>ضبط سرعة الإلقاء حسب مدة الفيديو.</p></div></div>
+        <div class="feature"><div class="feature-icon">🎙️</div><div><strong>استنساخ صوتك</strong><p>ميزة مستقبلية تتطلب تسجيلًا وموافقة صريحة.</p></div></div>
+      </div>
+      <div class="panel side-card">
+        <h2>🎙️ استنساخ الصوت</h2>
+        <div class="clone-box">
+          <p>هذه منطقة تجهيز فقط. رفع التسجيل لا يرسل الملف إلى أي جهة ولا ينشئ نسخة صوتية حاليًا.</p>
+          <div class="field"><label for="voiceFile">اختر تسجيلًا صوتيًا (اختياري)</label><input id="voiceFile" type="file" accept="audio/*"></div>
+          <div class="hint" id="fileInfo">لم يتم اختيار ملف.</div>
+          <label class="consent"><input type="checkbox" id="consent"><span>أؤكد أن هذا صوتي، أو أن لدي إذنًا صريحًا من صاحبه لاستخدامه.</span></label>
+          <button class="btn btn-primary" type="button" id="cloneBtn">تجهيز استنساخ الصوت</button>
+          <p id="cloneStatus" aria-live="polite"></p>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="container content">
+    <h2>ما هو استوديو الصوت من AdaaHub؟</h2>
+    <p>استوديو الصوت صفحة مخصصة لتجهيز التعليق الصوتي للمقاطع القصيرة، والدروس، والعروض، والمحتوى الرقمي. يمكنك من خلالها تحديد النص واللغة والصوت والسرعة والنبرة في واجهة واحدة. هذه النسخة واجهة أولية فقط؛ يلزم ربط خدمة تحويل النص إلى كلام وخادم آمن حتى تعمل عملية التوليد والتنزيل وحفظ الرصيد.</p>
+    <h2>كيف تستخدم الأداة؟</h2>
+    <ol>
+      <li>اكتب النص الذي تريد تحويله إلى تعليق صوتي.</li>
+      <li>اختر اللغة واللهجة ونوع الصوت والنبرة المناسبة.</li>
+      <li>اضبط سرعة الكلام، ثم استخدم زر إنشاء الصوت بعد تفعيل الخدمة مستقبلًا.</li>
+      <li>بعد الربط، يمكن إضافة مشغل صوت وخيار تنزيل الملف الناتج.</li>
+    </ol>
+    <h2>الخصوصية والاستخدام المسؤول</h2>
+    <p>لا ترفع تسجيلات أشخاص آخرين لاستنساخ أصواتهم دون موافقة واضحة. في هذه النسخة لا يتم إرسال التسجيلات أو النصوص إلى خادم، ولا توجد عملية فعلية لاستنساخ الصوت. عند إضافة الخدمة، ينبغي توضيح سياسة الخصوصية ومدة الاحتفاظ بالملفات وطريقة حذفها.</p>
+    <h2 id="faq">الأسئلة الشائعة</h2>
+    <div class="faq">
+      <details><summary>هل تحويل النص إلى صوت يعمل الآن؟</summary><p>لا، الصفحة واجهة تجريبية. يلزم توصيلها بمزود خدمة صوت وخادم خلفي قبل إنشاء صوت حقيقي.</p></details>
+      <details><summary>هل يمكنني إنشاء صوت باللهجة المصرية؟</summary><p>تم وضع خيار العربية باللهجة المصرية ضمن إعدادات الواجهة، لكن توفر اللهجة وجودة الصوت يعتمدان على مزود الخدمة الذي سيتم ربطه.</p></details>
+      <details><summary>هل أستطيع تنزيل ملف MP3؟</summary><p>ليس في النسخة الحالية، لأن ملف الصوت لا يتم توليده بعد. يمكن تفعيل التنزيل بعد ربط خدمة التوليد.</p></details>
+      <details><summary>هل استنساخ الصوت متاح؟</summary><p>ليس بعد. يتطلب مزودًا يدعم استنساخ الصوت، وموافقة مناسبة، وخادمًا آمنًا لمعالجة التسجيل.</p></details>
+      <details><summary>هل توجد باقة مجانية ومدفوعة؟</summary><p>نظام الرصيد والباقات غير مفعّل حاليًا. يجب تحديد الحدود والأسعار بعد اختيار المزود وحساب تكلفة الاستخدام.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container footer-inner"><span>© <span id="year"></span> AdaaHub — أدوات مجانية للجميع</span><span><a href="../index.html">الصفحة الرئيسية</a> · <a href="../tools/">كل الأدوات</a></span></div></footer>
+
+<script>
+  const body = document.body;
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('adaahub-theme');
+  if (savedTheme === 'dark') body.classList.add('dark');
+  themeToggle.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    const theme = body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('adaahub-theme', theme);
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+  });
+
+  const scriptText = document.getElementById('scriptText');
+  const charCount = document.getElementById('charCount');
+  scriptText.addEventListener('input', () => charCount.textContent = scriptText.value.length);
+  const speed = document.getElementById('speed');
+  speed.addEventListener('input', () => document.getElementById('speedVal').textContent = Number(speed.value).toFixed(1) + '×');
+
+  document.getElementById('generateBtn').addEventListener('click', () => {
+    const status = document.getElementById('status');
+    status.textContent = scriptText.value.trim()
+      ? 'الخدمة غير مفعّلة بعد. اربط مزود تحويل النص إلى كلام وخادمًا خلفيًا لتوليد الصوت.'
+      : 'من فضلك اكتب النص الذي تريد تحويله أولًا.';
+    document.getElementById('progressBar').style.width = '0';
+  });
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    scriptText.value = '';
+    charCount.textContent = '0';
+    document.getElementById('status').textContent = 'تم مسح النص. إنشاء الصوت غير متاح قبل ربط مزود الخدمة.';
+  });
+  document.getElementById('plansBtn').addEventListener('click', () => {
+    document.getElementById('plansNote').hidden = false;
+  });
+  const voiceFile = document.getElementById('voiceFile');
+  voiceFile.addEventListener('change', () => {
+    const file = voiceFile.files && voiceFile.files[0];
+    document.getElementById('fileInfo').textContent = file ? `تم اختيار: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} ميجابايت) — لم يتم رفعه.` : 'لم يتم اختيار ملف.';
+  });
+  document.getElementById('cloneBtn').addEventListener('click', () => {
+    const status = document.getElementById('cloneStatus');
+    if (!document.getElementById('consent').checked) {
+      status.textContent = 'يرجى تأكيد امتلاكك للصوت أو وجود إذن صريح من صاحبه.';
+      return;
+    }
+    if (!voiceFile.files || !voiceFile.files[0]) {
+      status.textContent = 'اختر تسجيلًا صوتيًا أولًا. لن يتم رفعه في هذه النسخة.';
+      return;
+    }
+    status.textContent = 'ميزة استنساخ الصوت غير مفعّلة بعد. لم يتم رفع التسجيل أو معالجته.';
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
